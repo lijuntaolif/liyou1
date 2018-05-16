@@ -11,14 +11,10 @@ public class UserService {
 	 * @param password
 	 * @return
 	 */
-	public boolean checkUser(String user_name,String password){
+	public Integer checkUser(String user_name,String password){
 	
 		UserDao userDao=new UserDao();
-		if(userDao.selectByNameAndPwd(user_name, password)==1){
-			return true;
-		}else{
-			return false;
-		}
+		return userDao.selectByNameAndPwd(user_name, password);
 	}
 	/**
 	 * 注册验证是否有此用户

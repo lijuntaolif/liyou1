@@ -17,7 +17,7 @@ public class UserDao {
 	 * 根据用户名密码查询是否有该用户
 	 * @param user_name
 	 * @param password
-	 * @return 1代表已有该用户  0代表没有该用户
+	 * @return 该用户id  0代表没有该用户
 	 */
 	public int selectByNameAndPwd(String user_name,String password){
 		conn=DBUtils.getconn();
@@ -29,7 +29,7 @@ public class UserDao {
 			pstmt.setString(2, password);
 			rs=pstmt.executeQuery();
 			while(rs.next()){
-				i=1;
+				i=rs.getInt("user_id");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

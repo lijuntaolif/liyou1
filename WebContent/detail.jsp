@@ -293,6 +293,21 @@
             color: white;
             font-family: arial, '宋体', \5b8b\4f53, sans-serif;
         }
+        #addCartButton2 {
+            width:150px;
+
+            border: 1px solid #C40000;
+            background-color: #C40000;
+            text-align: center;
+            line-height: 40px;
+            font-size: 16px;
+            margin-top:20px;
+
+
+            margin-left:100px;
+            color: white;
+            font-family: arial, '宋体', \5b8b\4f53, sans-serif;
+        }
         #addCartButton a{
             text-decoration:none;
             color: white;
@@ -494,9 +509,20 @@
         function checksubmit(){
             var toltalpay=$("#totlepay").text();
             if(toltalpay!=null&&toltalpay!=0){
-                alert("购买成功");
+               
                 return true;
+            }else{
+            	return false;
             }
+        }
+        function checkDate(){
+        	var date=$("#date").val();
+        	if(date==""){
+        		alert("请选择出发日期！！！");
+        		return false;
+        	}else{
+        		return true;
+        	}
         }
 
         $(function(){
@@ -512,10 +538,81 @@
                     syncpay();
                 }
             });
+            /**点击**/
             $("#buyButton").click(function(){
-            	
-                    checksubmit();
+            		if(checksubmit()&&checkDate()){
+            			var tourism_id=$("#tourism_id").val();
+            			var date=$("#date").val();
+            			var men=$("#men").val();
+            			var children=$("#children").val();
+            			var toltalpay=$("#totlepay").text();
+            			var user_id=$("#user_id").val();
+            		
+            			
+            			$.ajax({
+                            url : 'formcommit',
+                            data : {
+                                'tourism_id': tourism_id,
+                                'date' : date,
+                                'men' : men,
+                                'children' : children,
+                                'toltalpay' : toltalpay,
+                                'user_id' : user_id
+                               
+                            },
+                            type : 'post',
+                            async : false,
+                            success : function(result) {
+                                if ($.trim(result) == "true") {
+                                    alert("购买成功，可在我的订单中查看信息");
+                                } else {
+                                    alert("购买失败");
+                                    
+                                }
+                            },
+                            error : function() {
+                                alert("ajax执行失败");
+                                flag = false;
+                            }
+                        })
+            		}
+                    
             });
+            /**点击收藏**/
+            $("#addCartButton").click(function(){
+        		
+        			var tourism_id=$("#tourism_id").val();
+        		
+        			var user_id=$("#user_id").val();
+        		
+        			
+        			$.ajax({
+                        url : 'collection',
+                        data : {
+                            'tourism_id': tourism_id,
+                             'user_id' : user_id
+                           
+                        },
+                        type : 'post',
+                        async : false,
+                        success : function(result) {
+                            if($.trim(result) == "1"){
+                                alert("添加收藏成功");
+                            }else if($.trim(result) == "3"){
+                                alert("此项目已在收藏列表中");
+                                
+                            }else{
+                            	alert("添加收藏失败");
+                            }
+                        },
+                        error : function() {
+                            alert("ajax执行失败");
+                            flag = false;
+                        }
+                    })
+        		
+                
+        });
         });
     </script>
 
@@ -529,6 +626,9 @@
 	List<Route> list3=(List<Route>)request.getAttribute("list3");
 	
 %>
+<input type="hidden" id="tourism_id" value="<%=tourism.getTourism_id()%>">
+<% Integer user_id=(Integer)session.getAttribute("user_id"); %>
+<input type="hidden" id="user_id" value="<%=user_id%>">
 <!--头部开始-->
 
 &nbsp;&nbsp; <img src="images/main/logo.jpg" height="40px" width="40px"><span>&nbsp;liyou&nbsp;&nbsp;离游</span>
@@ -550,8 +650,14 @@
                 <a href="collection.jsp">收藏</a>
             </li>
             <li>
-                <a href="login.jsp">登录</a>/<a href="register.jsp">注册</a>
-            </li>
+                <%
+           		String user_name=(String)session.getAttribute("user_name");
+           		if(user_name!=null){
+           			%>用户&nbsp;<%=user_name %>&nbsp;你好<%
+           		}else{
+           			%> <a href="login.jsp">登录</a>/<a href="register.jsp">注册</a><%
+           		}
+           		 %></li>
         </ul>
     </nav>
 
@@ -636,6 +742,7 @@
                             <div class="bg_my_left_massage_3_right"><%=tourism.getViews() %></div>
 
                         </div>
+                        
                         <div class="bg_my_left_massage_buy">
                             <div class="bg_my_left_massage_buy_left">
                                 <span>出发 </span><input id="date" type="date" value="2018-5-4" min="<%=tourism.getFirstday() %>" max="<%=tourism.getLastday() %>">&nbsp;&nbsp;
@@ -653,17 +760,51 @@
                     </div>
 
                     <div class="buyDiv">
-                        <div class="buyLink">
-                            <input type="submit" id="buyButton" value="立即预订">
-                        </div>
+                        
+					<%
+						if(session.getAttribute("user_name")!=null){
+							%>
+								<div class="buyLink">
+                        
+                            		<input type="submit" id="buyButton" value="立即预订">
+                        		</div>
+                        	<%
+						}else{
+							%>
+								<a href="login.jsp">
+									<div class="buyLink">
+                      
+                            			<input type="submit" id="buyButton" value="立即预订">
+                        			</div>
+								</a>
+								
+							<%
+						}
+					%>
                         <div class="addCartLink">
-
-
-                        <button id="addCartButton">
-                            <a href="collection.html">
-                                <span class="glyphicon glyphicon-shopping-cart"></span>加入收藏
-                            </a>
-                        </button>
+                        <%
+                       		 if(session.getAttribute("user_name")!=null){
+                       			 %>
+                       			 <button id="addCartButton">
+                            		<a>
+                               	 		<span class="glyphicon glyphicon-shopping-cart"></span>加入收藏
+                            		</a>
+                        		</button>
+                        		<%
+                       			 
+                       		 }else{
+                       			 %>
+                       			 <a href="login.jsp">
+                       			 <button id="addCartButton2">
+                            		
+                               	 		<span class="glyphicon glyphicon-shopping-cart"></span>加入收藏
+                            		
+                        		</button>
+                        		</a>
+                        		<%
+                       		 }
+                        %>
+							
                         </div>
                     </div>
 

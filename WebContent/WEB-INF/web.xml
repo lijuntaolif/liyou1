@@ -68,6 +68,27 @@
 		<url-pattern>/DetailServlet</url-pattern>
 	</servlet-mapping>
   	
+  	<servlet>
+		<servlet-name>formcommit</servlet-name>
+		<servlet-class>cn.liyou.servlet.FormcommitServlet</servlet-class>
+		
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>formcommit</servlet-name>
+		<url-pattern>/formcommit</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>collection</servlet-name>
+		<servlet-class>cn.liyou.servlet.CollectionServlet</servlet-class>
+		
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>collection</servlet-name>
+		<url-pattern>/collection</url-pattern>
+	</servlet-mapping>
+	
+	
   	
   
 </web-app>

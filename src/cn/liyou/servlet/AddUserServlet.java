@@ -25,7 +25,9 @@ public class AddUserServlet extends HttpServlet {
 			User user=new User(user_name,password,uphone,company_name,address,cphone);
 			UserService userService=new UserService();
 			if(userService.insertUser(user)){
+				int user_id=userService.checkUser(user_name, password);
 				req.getSession().setAttribute("user_name", user_name);
+				req.getSession().setAttribute("user_id", user_id);
 				resp.sendRedirect("main.jsp");
 			}else{
 				resp.sendRedirect("register.jsp");

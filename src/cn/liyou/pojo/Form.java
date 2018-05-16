@@ -17,12 +17,12 @@ public class Form {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Form(Integer form_id, Integer user_id, Date form_day, Integer tourism_id, String state, Integer mennum,
+	public Form( Integer user_id, Integer tourism_id, String state, Integer mennum,
 			Integer chidrennum, Date outdate, Integer pay) {
 		super();
-		this.form_id = form_id;
+	
 		this.user_id = user_id;
-		this.form_day = form_day;
+		
 		this.tourism_id = tourism_id;
 		this.state = state;
 		this.mennum = mennum;

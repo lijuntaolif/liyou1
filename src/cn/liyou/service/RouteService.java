@@ -9,7 +9,7 @@ import cn.liyou.pojo.Route;
 
 public class RouteService {
 	/**
-	 * 获取第二种图片信息
+	 * 获取行程信息
 	 * @param tid
 	 * @return
 	 */

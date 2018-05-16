@@ -15,9 +15,10 @@ public class LoginServlet extends HttpServlet {
 		String user_name=(String) req.getParameter("name");
 		String password=(String) req.getParameter("pwd");
 		UserService userService=new UserService();
-		
-		if(userService.checkUser(user_name, password)){
+		int user_id=userService.checkUser(user_name, password);
+		if(user_id!=0){
 			req.getSession().setAttribute("user_name", user_name);
+			req.getSession().setAttribute("user_id", user_id);
 			resp.getWriter().print("true");
 		}else{
 			resp.getWriter().print("false");
