@@ -1,3 +1,6 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="cn.liyou.pojo.Tourism"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -156,6 +159,11 @@
     </script>
 </head>
 <body>
+	<%
+		List<Tourism> list=new ArrayList<Tourism>();
+		list=(List<Tourism>)request.getAttribute("tlist");
+	
+	%>
     <div class="middle">
 
 
@@ -166,15 +174,19 @@
                 </div>
             </div>
             <div class="middle_middle">
-                <!--信息展示开始-->
+            <%
+            	for(int i=0;i<list.size();i++){
+            		Tourism tourism=list.get(i);
+            		%>
+            			<!--信息展示开始-->
                 <div class="middle_message">
 
                     <div class="middle_message_image">
-                        <img src="images/main/chujing4.jpg"  width="250px" height="170px">
+                        <img src="images/tourism/<%=tourism.getImages_name() %>"  width="250px" height="170px">
                     </div>
                     <div class="middle_message_name">
-                        <a href="detail.html">
-                            上海五日终极旅游上海五日终极旅游上海五日终极旅游上海五日终极旅游上海五日终极旅游
+                        <a href="DetailServlet?tourism_id=<%=tourism.getTourism_id()%>">
+                            <%=tourism.getTourism_name() %>
                         </a>
 
                     </div>
@@ -184,14 +196,14 @@
                         </div>
                         <div class="middle_message_time_right">
                            <span>
-                           ￥130
+                           	￥<%=tourism.getDiscountprice() %>
                            </span>
                         </div>
 
                     </div>
                     <div class="middle_bottom">
                         <div class="middle_bottom_left">
-                            <a href="detail.html">立即购买</a>
+                            <a href="detail.jsp?tourism_id=<%=tourism.getTourism_id()%>">立即购买</a>
                         </div>
                         <div class="middle_bottom_right">
                             <a href="#">删除收藏</a>
@@ -200,175 +212,10 @@
                     </div>
                 </div>
                 <!--信息展示结束-->
-                <!--信息展示开始-->
-                <div class="middle_message">
-
-                    <div class="middle_message_image">
-                        <img src="images/main/chujing4.jpg"  width="250px" height="170px">
-                    </div>
-                    <div class="middle_message_name">
-                        <a href="detail.html">
-                            上海五日终极旅游上海五日终极旅游上海五日终极旅游上海五日终极旅游上海五日终极旅游
-                        </a>
-
-                    </div>
-                    <div class="middle_message_time">
-                        <div class="middle_message_time_left" >
-                            130人出游
-                        </div>
-                        <div class="middle_message_time_right">
-                           <span>
-                           ￥130
-                           </span>
-                        </div>
-
-                    </div>
-                    <div class="middle_bottom">
-                        <div class="middle_bottom_left">
-                            <a href="detail.html">立即购买</a>
-                        </div>
-                        <div class="middle_bottom_right">
-                            <a href="#">删除收藏</a>
-                        </div>
-
-                    </div>
-                </div>
-                <!--信息展示结束-->
-                <!--信息展示开始-->
-                <div class="middle_message">
-
-                    <div class="middle_message_image">
-                        <img src="images/main/chujing4.jpg"  width="250px" height="170px">
-                    </div>
-                    <div class="middle_message_name">
-                        <a href="detail.html">
-                            上海五日终极旅游上海五日终极旅游上海五日终极旅游上海五日终极旅游上海五日终极旅游
-                        </a>
-
-                    </div>
-                    <div class="middle_message_time">
-                        <div class="middle_message_time_left" >
-                            130人出游
-                        </div>
-                        <div class="middle_message_time_right">
-                           <span>
-                           ￥130
-                           </span>
-                        </div>
-
-                    </div>
-                    <div class="middle_bottom">
-                        <div class="middle_bottom_left">
-                            <a href="detail.html">立即购买</a>
-                        </div>
-                        <div class="middle_bottom_right">
-                            <a href="#">删除收藏</a>
-                        </div>
-
-                    </div>
-                </div>
-                <!--信息展示结束-->
-                <!--信息展示开始-->
-                <div class="middle_message">
-
-                    <div class="middle_message_image">
-                        <img src="images/main/chujing4.jpg"  width="250px" height="170px">
-                    </div>
-                    <div class="middle_message_name">
-                        <a href="detail.html">
-                            上海五日终极旅游上海五日终极旅游上海五日终极旅游上海五日终极旅游上海五日终极旅游
-                        </a>
-
-                    </div>
-                    <div class="middle_message_time">
-                        <div class="middle_message_time_left" >
-                            130人出游
-                        </div>
-                        <div class="middle_message_time_right">
-                           <span>
-                           ￥130
-                           </span>
-                        </div>
-
-                    </div>
-                    <div class="middle_bottom">
-                        <div class="middle_bottom_left">
-                            <a href="detail.html">立即购买</a>
-                        </div>
-                        <div class="middle_bottom_right">
-                            <a href="#">删除收藏</a>
-                        </div>
-
-                    </div>
-                </div>
-                <!--信息展示结束-->
-                <!--信息展示开始-->
-                <div class="middle_message">
-
-                    <div class="middle_message_image">
-                        <img src="images/main/chujing4.jpg"  width="250px" height="170px">
-                    </div>
-                    <div class="middle_message_name">
-                        <a href="detail.html">
-                            上海五日终极旅游上海五日终极旅游上海五日终极旅游上海五日终极旅游上海五日终极旅游
-                        </a>
-
-                    </div>
-                    <div class="middle_message_time">
-                        <div class="middle_message_time_left" >
-                            130人出游
-                        </div>
-                        <div class="middle_message_time_right">
-                           <span>
-                           ￥130
-                           </span>
-                        </div>
-
-                    </div>
-                    <div class="middle_bottom">
-                        <div class="middle_bottom_left">
-                            <a href="detail.html">立即购买</a>
-                        </div>
-                        <div class="middle_bottom_right">
-                            <a href="#">删除收藏</a>
-                        </div>
-
-                    </div>
-                </div>
-                <!--信息展示结束-->
-                <!--信息展示开始-->
-                <div class="middle_message">
-
-                    <div class="middle_message_image">
-                        <img src="images/main/chujing4.jpg"  width="250px" height="170px">
-                    </div>
-                    <div class="middle_message_name">
-                        <a href="detail.html">
-                            上海五日终极旅游上海五日终极旅游上海五日终极旅游上海五日终极旅游上海五日终极旅游
-                        </a>
-
-                    </div>
-                    <div class="middle_message_time">
-                        <div class="middle_message_time_left" >
-                            130人出游
-                        </div>
-                        <div class="middle_message_time_right">
-                           <span>
-                           ￥130
-                           </span>
-                        </div>
-
-                    </div>
-                    <div class="middle_bottom">
-                        <div class="middle_bottom_left">
-                            <a href="detail.html">立即购买</a>
-                        </div>
-                        <div class="middle_bottom_right">
-                            <a href="#">删除收藏</a>
-                        </div>
-                    </div>
-                </div>
-                <!--信息展示结束-->
+            		<%
+            	}
+            %>
+               
 
 
             </div>

@@ -241,7 +241,7 @@
                         <a>找回密码</a>
                     </div>
                     <div class="lor_right">
-                        <a href="regist.jsp">免费注册</a>
+                        <a href="register.jsp">免费注册</a>
                     </div>
                 </div>
                 <div class="submit_div">

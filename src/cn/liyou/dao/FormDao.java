@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import cn.liyou.pojo.Form;
@@ -45,6 +46,70 @@ public class FormDao {
 		return i;
 	}
 	
+	/**
+	 * 查询未出行订单
+	 * @param user_id
+	 * @return form集合
+	 */
+	public List<Form> selectByUser_id(Integer user_id){
+		List<Form> list=new ArrayList<Form>();
+		conn=DBUtils.getconn();
+		String sql="select * from form where user_id=? and state='未出行'or state='正在退款' or state='已退款'";
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, user_id);
+			rs=pstmt.executeQuery();
+			while(rs.next()){
+				
+				Form form=new Form( rs.getInt("user_id"), rs.getInt("tourism_id") , rs.getString("state") ,rs.getInt("mennum") ,
+						rs.getInt("childrennum") ,rs.getDate("outdate"), rs.getInt("pay") );
+				form.setForm_day(rs.getDate("form_day"));
+				form.setForm_id(rs.getInt("form_id"));
+				list.add(form);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			DBUtils.closeAll(conn, pstmt, rs);
+		}
+		
+		
+		return list;
+		
+	}
+	
+	/**
+	 * 查询已出行订单
+	 * @param user_id
+	 * @return form集合
+	 */
+	public List<Form> selectByUser_id2(Integer user_id){
+		List<Form> list=new ArrayList<Form>();
+		conn=DBUtils.getconn();
+		String sql="select * from form where user_id=? and state='已出行' ";
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, user_id);
+			rs=pstmt.executeQuery();
+			while(rs.next()){
+				
+				Form form=new Form( rs.getInt("user_id"), rs.getInt("tourism_id") , rs.getString("state") ,rs.getInt("mennum") ,
+						rs.getInt("childrennum") ,rs.getDate("outdate"), rs.getInt("pay") );
+				form.setForm_day(rs.getDate("form_day"));
+				form.setForm_id(rs.getInt("form_id"));
+				list.add(form);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			DBUtils.closeAll(conn, pstmt, rs);
+		}
+		
+		
+		return list;
+		
+	}
+
 
 
 }

@@ -1,3 +1,7 @@
+<%@page import="cn.liyou.service.TourismService"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="cn.liyou.pojo.Form"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -220,61 +224,48 @@
 
                     </div>
                     <div class="form_message">
-                        <div class="form_message_1">
+                    <%
+                    	List<Form> list=new ArrayList<Form>();
+                    	list=(List<Form>)request.getAttribute("list");
+                    	TourismService tService=new TourismService();
+                    	for(int i=0;i<list.size();i++){
+                    		Form form=list.get(i);
+                    		%>
+                    		<div class="form_message_1">
                             <div class="form_head_nav1">
-                                1024
+                                <%=form.getForm_id() %>
                             </div>
                             <div class="form_head_nav2">
-                                <a href="detail.html">上海一日游上海一日游上海一日游上海一日游</a>
+                                <a href="DetailServlet?tourism_id=<%=form.getTourism_id()%>"><%=tService.getTourismById(form.getTourism_id()).getTourism_name() %></a>
                             </div>
                             <div class="form_head_nav1">
-                                100
+                                <%=form.getPay()%>
+                                
+                         
                             </div>
                             <div class="form_head_nav1">
-                                2018-5-1
+                               <%=form.getForm_day()%>
                             </div>
                             <div class="form_head_nav1">
-                                18226327035
+                                <%=tService.getTourismById(form.getTourism_id()).getCphone() %>
                             </div>
                             <div class="form_head_nav1">
-                                正在退款
+                             	<%=form.getState()%>
                             </div>
                             <div class="form_head_nav3">
                                 <div class="back">
-                                    退款
+                                  	  退款
                                 </div>
                             </div>
 
                         </div>
+                    			
+                    		
+                    		<%
+                    	}
+                    %>
+                       
 
-
-
-                        <div class="form_message_1">
-                            <div class="form_head_nav1">
-                                1024
-                            </div>
-                            <div class="form_head_nav2">
-                                <a href="detail.html">上海一日游上海一日游上海一日游上海一日游上海一日游</a>
-                            </div>
-                            <div class="form_head_nav1">
-                                100
-                            </div>
-                            <div class="form_head_nav1">
-                                2018-5-1
-                            </div>
-                            <div class="form_head_nav1">
-                                18226327035
-                            </div>
-                            <div class="form_head_nav1">
-                                正在退款
-                            </div>
-                            <div class="form_head_nav3">
-                                <div class="back">
-                                    退款
-                                </div>
-                            </div>
-
-                        </div>
                     </div>
                 </div>
                 <div class="yichuxing">
@@ -307,61 +298,50 @@
 
                     </div>
                     <div class="form_message">
-                        <div class="form_message_1">
-                            <div class="form_head_nav1">
-                                1024
-                            </div>
-                            <div class="form_head_nav2">
-                                <a href="detail.html">上海一日游上海一日游上海一日游上海一日游</a>
-                            </div>
-                            <div class="form_head_nav1">
-                                100
-                            </div>
-                            <div class="form_head_nav1">
-                                2018-5-1
-                            </div>
-                            <div class="form_head_nav1">
-                                18226327035
-                            </div>
-                            <div class="form_head_nav1">
-                                冻结
-                            </div>
-                            <div class="form_head_nav3">
-                                <div class="back">
-                                    删除订单
-                                </div>
-                            </div>
+                    	<%
+                    	List<Form> list2=new ArrayList<Form>();
+                    	list2=(List<Form>)request.getAttribute("list2");
+                    	
+                    	for(int i=0;i<list2.size();i++){
+                    		Form form2=list2.get(i);
+                    		%>
+                			<div class="form_message_1">
+                        		<div class="form_head_nav1">
+                            		<%=form2.getForm_id() %>
+                        		</div>
+                        	<div class="form_head_nav2">
+                            	<a href="DetailServlet?tourism_id=<%=form2.getTourism_id()%>"><%=tService.getTourismById(form2.getTourism_id()).getTourism_name() %></a>
+                          </div>
+                        	<div class="form_head_nav1">
+                        	<%=form2.getPay()%>
+                                 
+                              
+                        	</div>
+                        	<div class="form_head_nav1">
+                            	<%=form2.getForm_day()%>
+                        	</div>
+                        	<div class="form_head_nav1">
+                            	<%=tService.getTourismById(form2.getTourism_id()).getCphone() %>
+                             </div>
+                        	<div class="form_head_nav1">
+                           		 <%=form2.getState()%>
+                       		</div>
+                        	<div class="form_head_nav3">
+                            	<div class="back">
+                               		 删除订单
+                            	</div>
+                       		 </div>
 
-                        </div>
+                   		 </div>
+                			
+                		<%
+                    	}
+                    		
+                    	%>
+                        
 
 
-
-                        <div class="form_message_1">
-                            <div class="form_head_nav1">
-                                1024
-                            </div>
-                            <div class="form_head_nav2">
-                                <a href="detail.html">上海一日游上海一日游上海一日游上海一日游上海一日游</a>
-                            </div>
-                            <div class="form_head_nav1">
-                                100
-                            </div>
-                            <div class="form_head_nav1">
-                                2018-5-1
-                            </div>
-                            <div class="form_head_nav1">
-                                18226327035
-                            </div>
-                            <div class="form_head_nav1">
-                                冻结
-                            </div>
-                            <div class="form_head_nav3">
-                                <div class="back">
-                                    删除订单
-                                </div>
-                            </div>
-
-                        </div>
+                        
                     </div>
                 </div>
             </div>
