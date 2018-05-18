@@ -706,6 +706,8 @@
             $(".mmd_1 span").click(function(){
                 var position=$(this).html();
                 $(".departure .d_2 span").html(position);
+               
+                
             });
 
             $("#mtl_1,.hidden1").mouseover(function(){
@@ -760,7 +762,9 @@
             $(".mm1m_right_top_left,.mm1mrtrt_left_center,.mm3mrtrt_left_center").mouseout(function(){
                 $(this).removeClass("mm1m_right_top_leftclass");
             });
-
+			
+            
+            
 
 
         });
@@ -1241,9 +1245,9 @@
                     <div class="mm1m_right">
                       <div class="mm1m_right_top">
                           <div class="mm1m_right_top_left">
-                            <div class="mm1m_right_top_left_center"><img src="images/main/chujing4.jpg" width="500px" height="280px"><br>
-                                <a href="DetailServlet?tourism_id=10003" class="a_huanhang">&nbsp;&nbsp;&nbsp;昆明+大理+丽江+玉龙雪山6日5晚跟团游+丽江+玉龙雪山6日5晚跟团游丽江+玉龙雪山6日5晚跟团游丽江+玉龙雪山6日5晚跟团游丽江+玉龙雪山6日5晚跟团游·贵族高尔夫挥杆+一...</a><br>
-                               <span>&nbsp;&nbsp;￥2014起</span>
+                            <div class="mm1m_right_top_left_center"><img src="images/tourism/t100.jpg" width="500px" height="280px"><br>
+                                <a href="DetailServlet?tourism_id=10003" class="a_huanhang">&nbsp;&nbsp;&nbsp;泰国曼谷+芭堤雅+新加坡+马来西亚6日5晚跟团游【爸妈放心游·认准北中旅】全国联运+自助美食+双岛畅游+全民疯抢</a><br>
+                               <span>&nbsp;&nbsp;￥3999起</span>
                             </div>
                           </div>
 
@@ -1251,32 +1255,32 @@
                               <div class="mm1mrtrt">
                                   <div class="mm1mrtrt_left">
                                       <div class="mm1mrtrt_left_center">
-                                      <img src="images/main/chujing5.jpg" width="228px" height="115px"><br>
-                                      <a href="detail.html" class="a_huanhang2">&nbsp;&nbsp;&nbsp;&nbsp;昆明+大理+丽江+玉龙雪山6日5晚跟团游(4钻)·贵族高尔夫挥杆+一...</a><br>
-                                      <span>&nbsp;&nbsp;&nbsp;&nbsp;￥2014起</span>
+                                      <img src="images/tourism/t300.jpg" width="228px" height="115px"><br>
+                                      <a href="DetailServlet?tourism_id=10021" class="a_huanhang2">&nbsp;&nbsp;&nbsp;&nbsp;皇家加勒比国际游轮·海洋航行者号6天5晚曼谷+曼谷</a><br>
+                                      <span>&nbsp;&nbsp;&nbsp;&nbsp;￥3293起</span>
                                       </div>
                                   </div>
                                   <div class="mm1mrtrt_right">
                                       <div class="mm1mrtrt_left_center">
-                                      <img src="images/main/chujing5.jpg" width="228px" height="115px"><br>
-                                      <a href="detail.html" class="a_huanhang2">&nbsp;&nbsp;&nbsp;&nbsp;昆明+大理+丽江+玉龙雪山6日5晚跟团游(4钻)·贵族高尔夫挥杆+一...</a><br>
-                                      <span>&nbsp;&nbsp;&nbsp;&nbsp;￥2014起</span>
+                                      <img src="images/tourism/t400.jpg" width="228px" height="115px"><br>
+                                      <a href="DetailServlet?tourism_id=10022" class="a_huanhang2">&nbsp;&nbsp;&nbsp;&nbsp;曼谷暹罗海洋世界一日游曼谷暹罗海洋世界一日游</a><br>
+                                      <span>&nbsp;&nbsp;&nbsp;&nbsp;￥100起</span>
                                       </div>
                                   </div>
                               </div>
                               <div class="mm1mrtrb">
                                   <div class="mm1mrtrt_left">
                                       <div class="mm1mrtrt_left_center">
-                                          <img src="images/main/chujing5.jpg" width="228px" height="115px"><br>
-                                          <a  href="detail.html" class="a_huanhang2">&nbsp;&nbsp;&nbsp;&nbsp;昆明+大理+丽江+玉龙雪山6日5晚跟团游(4钻)·贵族高尔夫挥杆+一...</a><br>
-                                          <span>&nbsp;&nbsp;&nbsp;&nbsp;￥2014起</span>
+                                          <img src="images/tourism/t500.jpg" width="228px" height="115px"><br>
+                                          <a  href="DetailServlet?tourism_id=10024" class="a_huanhang2">&nbsp;&nbsp;&nbsp;&nbsp;曼谷杜莎夫人蜡像馆曼谷一次性近距离接触“名人政要”</a><br><br>
+                                          <span>&nbsp;&nbsp;&nbsp;&nbsp;￥99起</span>
                                       </div>
                                   </div>
                                   <div class="mm1mrtrt_right">
                                       <div class="mm1mrtrt_left_center">
-                                          <img src="images/main/chujing5.jpg" width="228px" height="115px"><br>
-                                          <a  href="detail.html" class="a_huanhang2">&nbsp;&nbsp;&nbsp;&nbsp;昆明+大理+丽江+玉龙雪山6日5晚跟团游(4钻)·贵族高尔夫挥杆+一...</a><br>
-                                          <span>&nbsp;&nbsp;&nbsp;&nbsp;￥2014起</span>
+                                          <img src="images/main/tmain1.jpg" width="228px" height="115px"><br>
+                                          <a  href="DetailServlet?tourism_id=10003" class="a_huanhang2">&nbsp;&nbsp;&nbsp;&nbsp;台湾环岛8日7晚半自助游(4钻)·垦丁1晚+台北3晚 涵盖必游精华景点 台北一日自由活动 品尝特色餐 放心纯玩</a><br>
+                                          <span>&nbsp;&nbsp;&nbsp;&nbsp;￥7200起</span>
                                       </div>
                                   </div>
                               </div>
@@ -1286,30 +1290,30 @@
                       <div class="mm1m_right_bottom">
                           <div class="mm1mrtrt_left">
                               <div class="mm1mrtrt_left_center">
-                                  <img src="images/main/chujing5.jpg" width="228px" height="115px"><br>
-                                  <a  href="detail.html" class="a_huanhang2">&nbsp;&nbsp;&nbsp;&nbsp;昆明+大理+丽江+玉龙雪山6日5晚跟团游(4钻)·贵族高尔夫挥杆+一...</a><br>
-                                  <span>&nbsp;&nbsp;&nbsp;&nbsp;￥2014起</span>
+                                  <img src="images/main/tmain2.jpg" width="228px" height="115px"><br>
+                                  <a  href="DetailServlet?tourism_id=10003" class="a_huanhang2">&nbsp;&nbsp;&nbsp;&nbsp;台湾环岛11日10晚私家团(5钻)·经典环岛 日月潭+阿里山+垦丁+太鲁阁一个不少 六合夜市+东大门夜市+士林夜市 三大夜市美食飨不停 台北3天自由活动</a><br>
+                                  <span>&nbsp;&nbsp;&nbsp;&nbsp;￥13646起</span>
                               </div>
                           </div>
                           <div class="mm1mrtrt_left">
                               <div class="mm1mrtrt_left_center">
-                                  <img src="images/main/chujing5.jpg" width="228px" height="115px"><br>
-                                  <a  href="detail.html" class="a_huanhang2">&nbsp;&nbsp;&nbsp;&nbsp;昆明+大理+丽江+玉龙雪山6日5晚跟团游(4钻)·贵族高尔夫挥杆+一...</a><br>
-                                  <span>&nbsp;&nbsp;&nbsp;&nbsp;￥2014起</span>
+                                  <img src="images/main/tmain3.jpg" width="228px" height="115px"><br>
+                                  <a  href="DetailServlet?tourism_id=10003" class="a_huanhang2">&nbsp;&nbsp;&nbsp;&nbsp;日本东京+富士河口湖町6日5晚私家团(4钻)·「湖景露天温泉赏富士山」Kachikachi登山缆车 河口湖天上山公园 米其林三星景点『久保田竹一美术馆』 浅草寺求签祈福+登东京天空之树晴空塔 东京1日私属时光</a><br>
+                                  <span>&nbsp;&nbsp;&nbsp;&nbsp;￥9777起</span>
                               </div>
                           </div>
                           <div class="mm1mrtrt_left">
                               <div class="mm1mrtrt_left_center">
-                                  <img src="images/main/chujing5.jpg" width="228px" height="115px"><br>
-                                  <a  href="detail.html" class="a_huanhang2">&nbsp;&nbsp;&nbsp;&nbsp;昆明+大理+丽江+玉龙雪山6日5晚跟团游(4钻)·贵族高尔夫挥杆+一...</a><br>
-                                  <span>&nbsp;&nbsp;&nbsp;&nbsp;￥2014起</span>
+                                  <img src="images/main/tmain4.jpg" width="228px" height="115px"><br>
+                                  <a  href="DetailServlet?tourism_id=10003" class="a_huanhang2">&nbsp;&nbsp;&nbsp;&nbsp;马尔代夫库拉玛提岛Kuramathi7日5晚自由行(4钻)·首晚马累+4晚岛上+全餐+拖尾沙滩+可升级水飞+高性价比热卖</a><br>
+                                  <span>&nbsp;&nbsp;&nbsp;&nbsp;￥11128起</span>
                               </div>
                           </div>
                           <div class="mm1mrtrt_left">
                               <div class="mm1mrtrt_left_center">
-                                  <img src="images/main/chujing5.jpg" width="228px" height="115px"><br>
-                                  <a  href="detail.html" class="a_huanhang2">&nbsp;&nbsp;&nbsp;&nbsp;昆明+大理+丽江+玉龙雪山6日5晚跟团游(4钻)·贵族高尔夫挥杆+一...</a><br>
-                                  <span>&nbsp;&nbsp;&nbsp;&nbsp;￥2014起</span>
+                                  <img src="images/main/tmain5.jpg" width="228px" height="115px"><br>
+                                  <a  href="DetailServlet?tourism_id=10003" class="a_huanhang2">&nbsp;&nbsp;&nbsp;&nbsp;美国东西海岸+夏威夷+纽约+华盛顿+洛杉矶市+拉斯维加斯14日跟团游·【放心游】直飞美国+全国联运+尼亚加拉大瀑布+【哈佛+麻省理工名校】+赠送波士顿龙虾每人一只</a><br>
+                                  <span>&nbsp;&nbsp;&nbsp;&nbsp;￥14409起</span>
                               </div>
                           </div>
 
@@ -1383,9 +1387,9 @@
                     <div class="mm1m_right">
                         <div class="mm1m_right_top">
                             <div class="mm1m_right_top_left">
-                                <div class="mm1m_right_top_left_center"><img src="images/main/chujing4.jpg" width="500px" height="280px"><br>
-                                    <a href="detail.html" class="a_huanhang">&nbsp;&nbsp;&nbsp;昆明+大理+丽江+玉龙雪山6日5晚跟团游(4钻)·贵族高尔夫挥杆+一...</a><br>
-                                    <span>&nbsp;&nbsp;￥2014起</span>
+                                <div class="mm1m_right_top_left_center"><img src="images/tourism/t200.jpg" width="500px" height="280px"><br>
+                                    <a href="DetailServlet?tourism_id=10004" class="a_huanhang">&nbsp;&nbsp;&nbsp;海南三亚4日3晚跟团游 出游之冠 『三酒店任选+升级海南四大名菜』携程自营专属景区通道 100%纯玩0购物 明星线</a><br>
+                                    <span>&nbsp;&nbsp;￥3225起</span>
                                 </div>
                             </div>
 
@@ -1393,32 +1397,32 @@
                                 <div class="mm1mrtrt">
                                     <div class="mm1mrtrt_left">
                                         <div class="mm1mrtrt_left_center">
-                                            <img src="images/main/chujing5.jpg" width="228px" height="115px"><br>
-                                            <a href="detail.html" class="a_huanhang2">&nbsp;&nbsp;&nbsp;&nbsp;昆明+大理+丽江+玉龙雪山6日5晚跟团游(4钻)·贵族高尔夫挥杆+一...</a><br>
-                                            <span>&nbsp;&nbsp;&nbsp;&nbsp;￥2014起</span>
+                                            <img src="images/tourism/t600.jpg" width="228px" height="115px"><br>
+                                            <a href="DetailServlet?tourism_id=10025" class="a_huanhang2">&nbsp;&nbsp;&nbsp;&nbsp;香港+澳门5日4晚半自助游·【推荐送上网卡】黄大仙祈福许愿+夜游维港+自由活动，A线：太平山顶+观光，B线：海洋公园+观光，C线：太平山顶观光+迪士尼，D线：海洋公园+迪士尼</a><br>
+                                            <span>&nbsp;&nbsp;&nbsp;&nbsp;￥3087起</span>
                                         </div>
                                     </div>
                                     <div class="mm1mrtrt_right">
                                         <div class="mm1mrtrt_left_center">
-                                            <img src="images/main/chujing5.jpg" width="228px" height="115px"><br>
-                                            <a href="detail.html" class="a_huanhang2">&nbsp;&nbsp;&nbsp;&nbsp;昆明+大理+丽江+玉龙雪山6日5晚跟团游(4钻)·贵族高尔夫挥杆+一...</a><br>
-                                            <span>&nbsp;&nbsp;&nbsp;&nbsp;￥2014起</span>
+                                            <img src="images/tourism/t700.jpg" width="228px" height="115px"><br>
+                                            <a href="DetailServlet?tourism_id=10026" class="a_huanhang2">&nbsp;&nbsp;&nbsp;&nbsp;厦门+鼓浪屿+福建土楼5日4晚跟团游(4钻)·【初夏热推 明星导游】1晚岛上+特色下午茶 赠帆船出海 口碑臻纯玩</a><br>
+                                            <span>&nbsp;&nbsp;&nbsp;&nbsp;￥1965起</span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="mm1mrtrb">
                                     <div class="mm1mrtrt_left">
                                         <div class="mm1mrtrt_left_center">
-                                            <img src="images/main/chujing5.jpg" width="228px" height="115px"><br>
-                                            <a href="detail.html" class="a_huanhang2">&nbsp;&nbsp;&nbsp;&nbsp;昆明+大理+丽江+玉龙雪山6日5晚跟团游(4钻)·贵族高尔夫挥杆+一...</a><br>
-                                            <span>&nbsp;&nbsp;&nbsp;&nbsp;￥2014起</span>
+                                            <img src="images/main/tmain6.jpg" width="228px" height="115px"><br>
+                                            <a href="DetailServlet?tourism_id=10003" class="a_huanhang2">&nbsp;&nbsp;&nbsp;&nbsp;海南三亚5日4晚跟团游(5钻)·“万人好评”纯玩明星线了解一下？ 携程自营专属景区通道 『迎暑期四重豪礼』A线+1元升级180度海景房 每班20名额 限量抢购</a><br>
+                                            <span>&nbsp;&nbsp;&nbsp;&nbsp;￥3025起</span>
                                         </div>
                                     </div>
                                     <div class="mm1mrtrt_right">
                                         <div class="mm1mrtrt_left_center">
-                                            <img src="images/main/chujing5.jpg" width="228px" height="115px"><br>
-                                            <a href="detail.html" class="a_huanhang2">&nbsp;&nbsp;&nbsp;&nbsp;昆明+大理+丽江+玉龙雪山6日5晚跟团游(4钻)·贵族高尔夫挥杆+一...</a><br>
-                                            <span>&nbsp;&nbsp;&nbsp;&nbsp;￥2014起</span>
+                                            <img src="images/main/tmain7.jpg" width="228px" height="115px"><br>
+                                            <a href="DetailServlet?tourism_id=10003" class="a_huanhang2">&nbsp;&nbsp;&nbsp;&nbsp;海南三亚6日5晚半自助游(5钻)·初夏美食季！超人气红树林 +1元换购亚马逊水乐园 升级四大名菜 100%纯玩 2天自由活动 错峰立减！</a><br>
+                                            <span>&nbsp;&nbsp;&nbsp;&nbsp;￥2975起</span>
                                         </div>
                                     </div>
                                 </div>
@@ -1428,30 +1432,30 @@
                         <div class="mm1m_right_bottom">
                             <div class="mm1mrtrt_left">
                                 <div class="mm1mrtrt_left_center">
-                                    <img src="images/main/chujing5.jpg" width="228px" height="115px"><br>
-                                    <a href="detail.html" class="a_huanhang2">&nbsp;&nbsp;&nbsp;&nbsp;昆明+大理+丽江+玉龙雪山6日5晚跟团游(4钻)·贵族高尔夫挥杆+一...</a><br>
-                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;￥2014起</span>
+                                    <img src="images/main/tmain8.jpg" width="228px" height="115px"><br>
+                                    <a href="DetailServlet?tourism_id=10003" class="a_huanhang2">&nbsp;&nbsp;&nbsp;&nbsp;重庆+成都5日4晚跟团游(4钻)·【网红双城记】 渝进成出+赠武隆VIP一日 2地精选酒店 游魔幻山城 逛天府成都</a><br>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;￥3164起</span>
                                 </div>
                             </div>
                             <div class="mm1mrtrt_left">
                                 <div class="mm1mrtrt_left_center">
-                                    <img src="images/main/chujing5.jpg" width="228px" height="115px"><br>
-                                    <a href="detail.html" class="a_huanhang2">&nbsp;&nbsp;&nbsp;&nbsp;昆明+大理+丽江+玉龙雪山6日5晚跟团游(4钻)·贵族高尔夫挥杆+一...</a><br>
-                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;￥2014起</span>
+                                    <img src="images/main/tmain9.jpg" width="228px" height="115px"><br>
+                                    <a href="DetailServlet?tourism_id=10003" class="a_huanhang2">&nbsp;&nbsp;&nbsp;&nbsp;广西桂林+阳朔+漓江5日4晚跟团游(5钻)·【销量超2万】确保VIP头等舱游全江【官方自营 帝王之旅】销量傲视全站 双梯田+大公馆+高标椿记+金奖啤酒鱼</a><br>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;￥3691起</span>
                                 </div>
                             </div>
                             <div class="mm1mrtrt_left">
                                 <div class="mm1mrtrt_left_center">
-                                    <img src="images/main/chujing5.jpg" width="228px" height="115px"><br>
-                                    <a href="detail.html" class="a_huanhang2">&nbsp;&nbsp;&nbsp;&nbsp;昆明+大理+丽江+玉龙雪山6日5晚跟团游(4钻)·贵族高尔夫挥杆+一...</a><br>
-                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;￥2014起</span>
+                                    <img src="images/main/tmain10.jpg" width="228px" height="115px"><br>
+                                    <a href="DetailServlet?tourism_id=10003" class="a_huanhang2">&nbsp;&nbsp;&nbsp;&nbsp;北京5日4晚跟团游(4钻)·【绚丽春季·缤纷盛惠 】 高端商务酒店 赠孔庙国子监 含京味儿《功夫老炮儿》盛宴 精选导游配备无线导览耳机 含升旗仪式 赠防丢失手环 帝都放心游</a><br>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;￥1163起</span>
                                 </div>
                             </div>
                             <div class="mm1mrtrt_left">
                                 <div class="mm1mrtrt_left_center">
-                                    <img src="images/main/chujing5.jpg" width="228px" height="115px"><br>
-                                    <a href="detail.html" class="a_huanhang2">&nbsp;&nbsp;&nbsp;&nbsp;昆明+大理+丽江+玉龙雪山6日5晚跟团游(4钻)·贵族高尔夫挥杆+一...</a><br>
-                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;￥2014起</span>
+                                    <img src="images/main/tmain11.jpg" width="228px" height="115px"><br>
+                                    <a href="DetailServlet?tourism_id=10003" class="a_huanhang2">&nbsp;&nbsp;&nbsp;&nbsp;上海迪士尼（Disney）3日自由行·【酒店套餐】住迪士尼乐园酒店·自选1/2日票</a><br>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;￥1842起</span>
                                 </div>
                             </div>
 
@@ -1525,30 +1529,30 @@
                         <div class="mm3m_right_bottom">
                             <div class="mm3mrtrt_left">
                                 <div class="mm3mrtrt_left_center">
-                                    <img src="images/main/chujing5.jpg" width="228px" height="115px"><br>
-                                    <a href="detail.html" class="a_huanhang2">&nbsp;&nbsp;&nbsp;&nbsp;昆明+大理+丽江+玉龙雪山6日5晚跟团游(4钻)·贵族高尔夫挥杆+一...</a><br>
-                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;￥2014起</span>
+                                    <img src="images/main/tmain12.jpg" width="228px" height="115px"><br>
+                                    <a href="DetailServlet?tourism_id=10003" class="a_huanhang2">&nbsp;&nbsp;&nbsp;&nbsp;云南丽江泸沽湖商务车精品小团纯玩一日游【不进摩梭家访+8-10人小团+进店退全款】</a><br>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;￥336起</span>
                                 </div>
                             </div>
                             <div class="mm3mrtrt_left">
                                 <div class="mm3mrtrt_left_center">
-                                    <img src="images/main/chujing5.jpg" width="228px" height="115px"><br>
-                                    <a href="detail.html" class="a_huanhang2">&nbsp;&nbsp;&nbsp;&nbsp;昆明+大理+丽江+玉龙雪山6日5晚跟团游(4钻)·贵族高尔夫挥杆+一...</a><br>
-                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;￥2014起</span>
+                                    <img src="images/main/tmain13.jpg" width="228px" height="115px"><br>
+                                    <a href="DetailServlet?tourism_id=10003" class="a_huanhang2">&nbsp;&nbsp;&nbsp;&nbsp;陕西西安秦始皇兵马俑博物馆+华清宫+骊山一日游【可订12人小团 赠手挖兵马俑 专线专导】</a><br>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;￥235起</span>
                                 </div>
                             </div>
                             <div class="mm3mrtrt_left">
                                 <div class="mm3mrtrt_left_center">
-                                    <img src="images/main/chujing5.jpg" width="228px" height="115px"><br>
-                                    <a href="detail.html" class="a_huanhang2">&nbsp;&nbsp;&nbsp;&nbsp;昆明+大理+丽江+玉龙雪山6日5晚跟团游(4钻)·贵族高尔夫挥杆+一...</a><br>
-                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;￥2014起</span>
+                                    <img src="images/main/tmain14.jpg" width="228px" height="115px"><br>
+                                    <a href="DetailServlet?tourism_id=10003" class="a_huanhang2">&nbsp;&nbsp;&nbsp;&nbsp;墨尔本绝美大洋路一日游,必去人气榜景点,十二门徒+阿波罗湾（可选观景直升机/短信凭证上车）</a><br>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;￥214起</span>
                                 </div>
                             </div>
                             <div class="mm3mrtrt_left">
                                 <div class="mm3mrtrt_left_center">
-                                    <img src="images/main/chujing5.jpg" width="228px" height="115px"><br>
-                                    <a href="detail.html" class="a_huanhang2">&nbsp;&nbsp;&nbsp;&nbsp;昆明+大理+丽江+玉龙雪山6日5晚跟团游(4钻)·贵族高尔夫挥杆+一...</a><br>
-                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;￥2014起</span>
+                                    <img src="images/main/tmain15.jpg" width="228px" height="115px"><br>
+                                    <a href="DetailServlet?tourism_id=10003" class="a_huanhang2">&nbsp;&nbsp;&nbsp;&nbsp;悉尼蓝山国家公园+落日游船一日游【14人小团/酒店接送/动物园亲密接触考拉】</a><br>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;￥224起</span>
                                 </div>
                             </div>
 
@@ -1558,30 +1562,30 @@
                         <div class="mm3m_right_top">
                             <div class="mm3mrtrt_left">
                                 <div class="mm3mrtrt_left_center">
-                                    <img src="images/main/chujing5.jpg" width="228px" height="115px"><br>
-                                    <a href="detail.html" class="a_huanhang2">&nbsp;&nbsp;&nbsp;&nbsp;昆明+大理+丽江+玉龙雪山6日5晚跟团游(4钻)·贵族高尔夫挥杆+一...</a><br>
-                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;￥2014起</span>
+                                    <img src="images/main/tmain16.jpg" width="228px" height="115px"><br>
+                                    <a href="DetailServlet?tourism_id=10003" class="a_huanhang2">&nbsp;&nbsp;&nbsp;&nbsp;杭州千岛湖景区+中心湖区游船+月光群岛+梅峰岛一日游【纯玩5个精华岛 市区免费接 登梅峰岛之巅】</a><br>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;￥300起</span>
                                 </div>
                             </div>
                             <div class="mm3mrtrt_left">
                                 <div class="mm3mrtrt_left_center">
-                                    <img src="images/main/chujing5.jpg" width="228px" height="115px"><br>
-                                    <a href="detail.html" class="a_huanhang2">&nbsp;&nbsp;&nbsp;&nbsp;昆明+大理+丽江+玉龙雪山6日5晚跟团游(4钻)·贵族高尔夫挥杆+一...</a><br>
-                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;￥2014起</span>
+                                    <img src="images/main/tmain17.jpg" width="228px" height="115px"><br>
+                                    <a href="DetailServlet?tourism_id=10003" class="a_huanhang2">&nbsp;&nbsp;&nbsp;&nbsp;都江堰景区+青城山一日游【你Like的私房菜，熊猫基地+都江堰VIP小团！】</a><br>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;￥239起</span>
                                 </div>
                             </div>
                             <div class="mm3mrtrt_left">
                                 <div class="mm3mrtrt_left_center">
-                                    <img src="images/main/chujing5.jpg" width="228px" height="115px"><br>
-                                    <a href="detail.html" class="a_huanhang2">&nbsp;&nbsp;&nbsp;&nbsp;昆明+大理+丽江+玉龙雪山6日5晚跟团游(4钻)·贵族高尔夫挥杆+一...</a><br>
-                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;￥2014起</span>
+                                    <img src="images/main/tmain18.jpg" width="228px" height="115px"><br>
+                                    <a href="DetailServlet?tourism_id=10003" class="a_huanhang2">&nbsp;&nbsp;&nbsp;&nbsp;成都大熊猫繁育研究基地+都江堰景区一日游【VIP小团出发晚+熊猫宴+无线耳麦+可选熊猫苑】</a><br>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;￥208起</span>
                                 </div>
                             </div>
                             <div class="mm3mrtrt_left">
                                 <div class="mm3mrtrt_left_center">
-                                    <img src="images/main/chujing5.jpg" width="228px" height="115px"><br>
-                                    <a href="detail.html" class="a_huanhang2">&nbsp;&nbsp;&nbsp;&nbsp;昆明+大理+丽江+玉龙雪山6日5晚跟团游(4钻)·贵族高尔夫挥杆+一...</a><br>
-                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;￥2014起</span>
+                                    <img src="images/main/tmain19.jpg" width="228px" height="115px"><br>
+                                    <a href="DetailServlet?tourism_id=10003" class="a_huanhang2">&nbsp;&nbsp;&nbsp;&nbsp;桂林漓江精华段竹筏漂流+银子岩+兴坪古镇+杨堤+九马画山一日游【真纯玩杨堤竹筏+商务小团可选】</a><br>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;￥234起</span>
                                 </div>
                             </div>
 

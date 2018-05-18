@@ -54,4 +54,29 @@ public class FormService {
 		
 		return formDao.selectByUser_id2(user_id);
 	}
+	
+	/**
+	 * 更新订单
+	 * @param form_id
+	 * @return
+	 */
+	public boolean updateForm(Integer form_id){
+		FormDao formDao=new FormDao();
+		if(formDao.updateState(form_id)==1){
+			return true;
+			
+		}else{
+			return false;
+		}
+	}
+	
+	public boolean deleteForm(Integer form_id){
+		FormDao formDao=new FormDao();
+		if(formDao.deleteForm(form_id)==1){
+			return true;
+			
+		}else{
+			return false;
+		}
+	}
 }

@@ -54,7 +54,7 @@ public class FormDao {
 	public List<Form> selectByUser_id(Integer user_id){
 		List<Form> list=new ArrayList<Form>();
 		conn=DBUtils.getconn();
-		String sql="select * from form where user_id=? and state='未出行'or state='正在退款' or state='已退款'";
+		String sql="select * from form where user_id=? and del=0  and  state='未出行'or state='正在退款' ";
 		try {
 			pstmt=conn.prepareStatement(sql);
 			pstmt.setInt(1, user_id);
@@ -86,7 +86,7 @@ public class FormDao {
 	public List<Form> selectByUser_id2(Integer user_id){
 		List<Form> list=new ArrayList<Form>();
 		conn=DBUtils.getconn();
-		String sql="select * from form where user_id=? and state='已出行' ";
+		String sql="select * from form where user_id=? and state='已出行' and del=0  or state='已退款'";
 		try {
 			pstmt=conn.prepareStatement(sql);
 			pstmt.setInt(1, user_id);
@@ -135,7 +135,31 @@ public class FormDao {
 		return i;
 		
 	}
-
+	/**
+	 * 删除订单
+	 * @param form_id
+	 * @return
+	 */
+	public int deleteForm(Integer form_id){
+		int i=0;
+		conn=DBUtils.getconn();
+		String sql="update form set del=1 where form_id=? ";
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, form_id);
+			i=pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			DBUtils.closeAll(conn, pstmt, null);
+		}
+		
+		
+		return i;
+		
+	}
+	
 
 
 

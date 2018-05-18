@@ -185,14 +185,14 @@
             
             $("#tuikuan").click(function(){
             	var choose=confirm("确定退款吗?");
-            	var tourism_id=$(this).parents().siblings(".form_head_nav5").text();
+            	var form_id=$(this).parents().siblings(".form_head_navx").val();
       			
             	if(choose){
-            		alert(tourism_id);
+            	
             		$.ajax({
                         url : 'backForm',
                         data : {
-                            'tourism_id': tourism_id
+                            'form_id': form_id
                            
                         },
                         type : 'post',
@@ -201,7 +201,38 @@
                             if ($.trim(result) == "true") {
                                 alert("退款申请成功，可在我的订单中查看信息");
                             } else {
-                                alert("退款失败");
+                                alert("退款申请失败");
+                                
+                            }
+                        },
+                        error : function() {
+                            alert("ajax执行失败");
+                            flag = false;
+                        }
+                    })
+            	}
+            	
+            });
+            
+            $("#sanchu").click(function(){
+            	var choose=confirm("确定删除订单吗?");
+            	var form_id=$(this).parents().siblings(".form_head_navx").val();
+      			
+            	if(choose){
+            	
+            		$.ajax({
+                        url : 'deleteForm',
+                        data : {
+                            'form_id': form_id
+                           
+                        },
+                        type : 'post',
+                        async : false,
+                        success : function(result) {
+                            if ($.trim(result) == "true") {
+                                alert("订单删除成功！！！");
+                            } else {
+                                alert("订单删除失败");
                                 
                             }
                         },
@@ -272,8 +303,10 @@
                     		Form form=list.get(i);
                     		%>
                     		<div class="form_message_1">
+                    		<input type="hidden" class="form_head_navn" value="<%=form.getForm_id()%>">
                             <div class="form_head_nav5">
-                                <%=form.getForm_id() %>
+                                <%=form.getForm_id()%>
+                               
                             </div>
                             <div class="form_head_nav2">
                                 <a href="DetailServlet?tourism_id=<%=form.getTourism_id()%>"><%=tService.getTourismById(form.getTourism_id()).getTourism_name() %></a>
@@ -313,6 +346,7 @@
                     <div class="form_head">
                         <h1 style="font-size: 15px">已出行订单</h1>
                         <div class="form_head_nav">
+                          
                             <div class="form_head_nav1">
                                 订单号
                             </div>
@@ -346,6 +380,8 @@
                     		Form form2=list2.get(i);
                     		%>
                 			<div class="form_message_1">
+                			<input type="hidden" class="form_head_navx" value="<%=form2.getForm_id()%>">
+                        
                         		<div class="form_head_nav1">
                             		<%=form2.getForm_id() %>
                         		</div>
@@ -367,7 +403,7 @@
                            		 <%=form2.getState()%>
                        		</div>
                         	<div class="form_head_nav3">
-                            	<div class="back">
+                            	<div class="back" id="sanchu">
                                		 删除订单
                             	</div>
                        		 </div>

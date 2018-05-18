@@ -203,14 +203,19 @@
 
         }
         .bg_my_left_massage_3_right{
-            width: auto;
+            width: 500px;
             height:20px ;
             margin-left: 20px;
-
+			
             float: left;
             line-height: 20px;
-
-
+ 			word-break: break-all;
+            text-overflow: ellipsis;
+            display: -webkit-box; /** 将对象作为伸缩盒子模型显示 **/
+            -webkit-box-orient: vertical; /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+            -webkit-line-clamp: 1; /** 显示的行数 **/
+            overflow: hidden;  /** 隐藏超出的内容 **/
+			
 
 
 
@@ -667,7 +672,7 @@
     <div class="bg">
         <div class="bg_left">
             <div class="show">
-                <img src="images/tourism/<%=list1.get(1) %>" alt="">
+                <img src="images/tourism/<%=list1.get(0) %>" alt="">
                 <div class="mask"></div>
             </div>
             <div class="smallshow">

@@ -118,6 +118,26 @@
 		<servlet-name>backForm</servlet-name>
 		<url-pattern>/backForm</url-pattern>
 	</servlet-mapping>
+  		
+	<servlet>
+		<servlet-name>deleteForm</servlet-name>
+		<servlet-class>cn.liyou.servlet.DeleteFormServlet</servlet-class>
+		
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>deleteForm</servlet-name>
+		<url-pattern>/deleteForm</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>setPosition</servlet-name>
+		<servlet-class>cn.liyou.servlet.SetPositionServlet</servlet-class>
+		
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>setPosition</servlet-name>
+		<url-pattern>/setPosition</url-pattern>
+	</servlet-mapping>
   	
   
 </web-app>
