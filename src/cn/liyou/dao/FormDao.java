@@ -109,6 +109,33 @@ public class FormDao {
 		return list;
 		
 	}
+	
+
+	/**
+	 * 更新订单状态
+	 * @param form_id
+	 * @return 1代表成功，0代表失败  
+	 */
+	public int updateState(Integer form_id){
+		int i=0;
+		conn=DBUtils.getconn();
+		String sql="update form set state='正在退款'  where form_id=? ";
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, form_id);
+			i=pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			DBUtils.closeAll(conn, pstmt, null);
+		}
+		
+		
+		return i;
+		
+	}
+
 
 
 

@@ -109,7 +109,15 @@
 		<url-pattern>/formServlet</url-pattern>
 	</servlet-mapping>
 	
-	
+	<servlet>
+		<servlet-name>backForm</servlet-name>
+		<servlet-class>cn.liyou.servlet.BackFormServlet</servlet-class>
+		
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>backForm</servlet-name>
+		<url-pattern>/backForm</url-pattern>
+	</servlet-mapping>
   	
   
 </web-app>
