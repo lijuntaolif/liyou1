@@ -477,7 +477,7 @@
             background-color: white;
             position: absolute;
             top:160px;
-            left: 103px;
+            left: 109px;
             display: none;
             border-left: 1px solid #D6D6D6;
             border-right: 1px solid #D6D6D6;
@@ -671,7 +671,18 @@
     </style>
     <script src="${pageContext.request.contextPath}/js/jquery-1.8.3.js" type="text/javascript"></script>
     <script type="text/javascript">
+    window.onload=function (){
+
+    	var position=$("#d_2span").text();
+    	
+    	if($.trim(position)==null||$.trim(position)==""||$.trim(position)=="null"){
+    	
+    		$("#d_2span").html("北京");
+    	}
+
+    }
         $(function(){
+        	
             $(".head a").mouseover(function(){
                 $(this).css({"color":"blue"});
             });
@@ -703,10 +714,33 @@
             $(".mmd_1 span").mouseout(function(){
                 $(this).css("color","black");
             });
-            $(".mmd_1 span").click(function(){
-                var position=$(this).html();
-                $(".departure .d_2 span").html(position);
-               
+            $(".mmd_1 span,.hotcity span span").click(function(){
+                var position2=$(this).html();
+                $("#d_2span").html(position2);
+               	$("#position").val(position2);
+               	
+               	$.ajax({
+                    url : 'setPostion',
+                    data : {
+                        'position': position2,
+                         
+                       
+                    },
+                    type : 'post',
+                    async : false,
+                    success : function(result) {
+                        if($.trim(result) == "true"){
+                        	$(".mdd").css("display","none");
+                        }else{
+                        	
+                        }
+                    },
+                    error : function() {
+                        alert("ajax执行失败");
+                        flag = false;
+                    }
+                })
+    		
                 
             });
 
@@ -828,7 +862,7 @@
         <div class="departure">
       
             <div class="d_1"><img src="images/main/dibiao.png" width="20" height="28"></div>
-            <div class="d_2"><span>太原</span>&nbsp;站</div>
+            <div class="d_2"><span id="d_2span"><%=session.getAttribute("position") %></span>&nbsp;站</div>
         </div>
         <div class="mdd">
             <div class="mmd_lef">
@@ -972,9 +1006,11 @@
 
         <div class="head_f_right">
             <div class="head_f_input">
-
-                <input style="width: 300px ;height: 40px" type="text" placeholder="请输入目的地、主题或关键字">
-                <input style="width: 100px ;height: 45px; background-color:#FD782A; color: white"  type="button" value="搜   索" >
+            	<form action="selectServlet" method="post" >
+				<input type="hidden" name="position" id="position" value="北京">
+                <input style="width: 300px ;height: 40px" name="conditions" type="text" placeholder="请输入目的地、主题或关键字">
+                <input style="width: 100px ;height: 45px; background-color:#FD782A; color: white"  type="submit" value="搜   索" >
+            	</form>
             </div>
 
         </div>

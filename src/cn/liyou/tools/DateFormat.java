@@ -29,5 +29,26 @@ public class DateFormat {
             e.printStackTrace();  
         }  
         return date_;  
+    }
+    //date1和当前时间比较如果date1早于当前时间返回true
+    public static boolean eq(Date date1){
+    	Date date2=new Date();
+    	if(date1.before(date2)){
+    		return true;
+    	}else{
+    		return false;
+    	}
+    }
+    
+  //转换date 至标准date  
+    public static Date date_date(Date date) {  
+    	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    	try {
+			return sdf.parse(sdf.format(date));
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+    	return null;
     }  
+    
 }

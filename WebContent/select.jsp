@@ -1,3 +1,6 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="cn.liyou.pojo.Tourism"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -25,7 +28,7 @@
             background-color: white;
             position: absolute;
             top:160px;
-            left: 103px;
+            left: 109px;
             display: none;
             border-left: 1px solid #D6D6D6;
             border-right: 1px solid #D6D6D6;
@@ -298,11 +301,23 @@
         .middle_top2{
             width: 1300px;
             height: 49px;
-
+			
             border-bottom: solid 1px #FFFFFF;
 
 
         }
+       /**新的div**/
+        .newaddDiv{
+        	background-color: #53B9FB;
+        	height:30px;
+        	width:auto;
+        	text-align: center;
+        	line-height: 30px;
+        	float: left;
+        	margin-top: 10px;
+        	color:white;
+        }
+       
         .middle_top3{
             width: 1300px;
             height: 49px;
@@ -333,6 +348,8 @@
             float: right;
 
         }
+        
+        
         .tlist{
             width: 998px;
             height: 198px;
@@ -475,12 +492,21 @@
 
     <script src="js/jquery-1.8.3.js" type="text/javascript"></script>
     <script type="text/javascript">
+    window.onload=function (){
+
+    	var position=$("#d_2span").text();
+    	
+    	if($.trim(position)==null||$.trim(position)==""||$.trim(position)=="null"){
+    	
+    		$("#d_2span").html("北京");
+    	}
+
+    }
         function checkMinMax(){
             var max=$("#maxprice").val();
             var min=$("#minprice").val();
             if(max!=null&&!isNaN(max)&&min!=null&&!isNaN(min)&&max>=min){
-
-                return true;
+             return true;
             }else{
                 alert("输入错误");
                 return false;
@@ -510,16 +536,74 @@
                 $(".mdd").css("display","none");
 
             });
+            $(".mmd_1 span").mouseover(function(){
+                $(this).css("color","#38B2E2");
+            });
+            $(".mmd_1 span").mouseout(function(){
+                $(this).css("color","black");
+            });
             $(".middle_top1 input").click(function(){
                 var val=$(this).val();
                 var name=$(this).prevAll("span").text();
-                var input=$("<input type='button' value='"+name+":"+val+"'> &nbsp;&nbsp;&nbsp;");
+                var exatt1=$(this).attr("exatt1");
+                var fation=$(this).attr("fation");
+                
+          		if(fation==1){
+          			var input2=$("<input type='text' hidden  name='keys' value='"+exatt1+"'>");
+          			$("#choose_no").prepend(input2);
+          		}
+          		if(fation==2){
+          			var input2=$("<input type='text' hidden  name='departure' value='"+exatt1+"'>");
+          			$("#choose_no").prepend(input2);
+          		}
+          		if(fation==3){
+          			var input2=$("<input type='text' hidden name='supplier' value='"+exatt1+"'>");
+          			$("#choose_no").prepend(input2);
+          		}
+                
+                var input=$("<input type='button'  name='key' class='middle_top1Input' value='"+name+":"+val+"'>");
+               
                 $("#choose_no").prepend(input);
-
+                
+               
+               
             });
+            
+            $(".mmd_1 span,.hotcity span span").click(function(){
+                var position=$(this).html();
+                $(".departure .d_2 span").html(position);
+               	$("#position").val(position);
+               	
+               	$.ajax({
+                    url : 'setPostion',
+                    data : {
+                        'position': position,
+                         
+                       
+                    },
+                    type : 'post',
+                    async : false,
+                    success : function(result) {
+                        if($.trim(result) == "true"){
+                        	$(".mdd").css("display","none");
+                        }else{
+                        	
+                        }
+                    },
+                    error : function() {
+                        alert("ajax执行失败");
+                        flag = false;
+                    }
+                })
+    		
+                
+            });
+
+            
+            
             //因为在初始加载之后添加input，所以标准点击事件不会绑定到动态添加的input。
             //live可以解决,通过 live() 方法附加的事件处理程序适用于匹配选择器的当前及未来的元素（比如由脚本创建的新元素）。
-            $(".middle_top2 input").live("click",function(){
+            $(".middle_top1Input").live("click",function(){
                 $(this).remove();
             });
 
@@ -531,12 +615,20 @@
                 var min=$("#minprice").val();
                 var name=$(this).prevAll("span").text();
                 if(checkMinMax()){
-                    var input=$("<input type='button' value='"+name+":"+min+"~"+max+"'> &nbsp;&nbsp;&nbsp;");
+                    var input=$("<input type='button' class='middle_top1Input' value='"+name+":"+min+"~"+max+"'> &nbsp;&nbsp;&nbsp;");
+                    var input2=$("<input type='text' hidden name='min' value='"+min+"'> &nbsp;&nbsp;&nbsp;");
+                    var input3=$("<input type='text' hidden name='max' value='"+max+"'> &nbsp;&nbsp;&nbsp;");
+                    
                     $("#choose_no").prepend(input);
+                    $("#choose_no").prepend(input2);
+                    $("#choose_no").prepend(input3);
                     $(this).hide();
+                   	$(".middle_top3").hide();
                 }
 
             });
+            
+            
             
 
 
@@ -544,6 +636,9 @@
     </script>
 </head>
 <body>
+<%
+    String position=(String)request.getAttribute("position");
+    %>
  <!--头部开始-->
 
        &nbsp;&nbsp; <img src="images/main/logo.jpg" height="40px" width="40px"><span>&nbsp;liyou&nbsp;&nbsp;离游</span>
@@ -559,13 +654,38 @@
                <a href="select.jsp">旅游</a>
            </li>
            <li>
-               <a href="form.jsp">订单</a>
+           <%
+           		String user_name=(String)session.getAttribute("user_name");
+           		if(user_name==null){
+           			%><a href="login.jsp">订单</a><%
+           		}else{
+           			%>   <a href="formServlet?user_id=<%=session.getAttribute("user_id")%>">订单</a><%
+           		}
+           		 %>
+            
            </li>
            <li>
-               <a href="collection.jsp">收藏</a>
+           <%
+           		
+           		if(user_name==null){
+           			%><a href="login.jsp">收藏</a><%
+           		}else{
+           			%>   <a href="FindCollection?user_id=<%=session.getAttribute("user_id")%>">收藏</a><%
+           		}
+           		 %>
+            
+              
            </li>
            <li>
-               <a href="login.jsp">登录</a>/<a href="register.jsp">注册</a>
+           		<%
+           		
+           		if(user_name!=null){
+           			%>用户&nbsp;<%=user_name %>&nbsp;你好<%
+           		}else{
+           			%> <a href="login.jsp">登录</a>/<a href="register.jsp">注册</a><%
+           		}
+           		 %>
+              
            </li>
        </ul>
         </nav>
@@ -575,7 +695,7 @@
         <div class="departure">
       
             <div class="d_1"><img src="images/main/dibiao.png" width="20" height="28"></div>
-            <div class="d_2"><span>太原</span>&nbsp;站</div>
+            <div class="d_2"><span id="d_2span"><%=session.getAttribute("position") %></span>&nbsp;站</div>
         </div>
         <div class="mdd">
             <div class="mmd_lef">
@@ -716,66 +836,64 @@
             </div>
 
         </div>
-
         <div class="head_f_right">
             <div class="head_f_input">
-
-                <input style="width: 300px ;height: 40px" type="text" placeholder="请输入目的地、主题或关键字">
-                <input style="width: 100px ;height: 45px; background-color:#FD782A; color: white"  type="button" value="搜   索" >
-            </div>
+				
+				<form action="selectServlet" method="post" id="form1">
+				<input type="hidden" name="position" id="position" value="<%=session.getAttribute("position")%>">
+                <input style="width: 300px ;height: 40px" name="conditions" type="text" placeholder="请输入目的地、主题或关键字">
+                <input style="width: 100px ;height: 45px; background-color:#FD782A; color: white"  type="submit" value="搜   索" >
+            	</form></div>
 
         </div>
 
     </div>
 
     <!--中间开始-->
+    <form action="selectByInput" method="post" id="form2">
     <div class="middle">
         <!--条件结束-->
         <div class="middle_top">
+        
             <div class="middle_top2">
+           
                 <div class="choose_left"><span id="chooses">已选择</span>
                 </div>
                 <div class="choose_right">
-                    <div id="choose_no" style="float: left"></div>
+                    <div id="choose_no" style="float: left"><input id="inputsub" style="float:right" type="submit"  value="提    交"></div>
+                    
+                  	
                 </div>
+              
             </div>
-                <div class="middle_top1">
-                    <span>游玩线路</span>&nbsp;&nbsp;&nbsp;
-                    <input type="button" value="上海+杭州+苏州">&nbsp;&nbsp;&nbsp;
-                    <input type="button" value="上海+杭州">&nbsp;&nbsp;&nbsp;
-                    <input type="button" value="上海+苏州">&nbsp;&nbsp;&nbsp;
-                    <input type="button" value="上海+迪士尼">&nbsp;&nbsp;&nbsp;
-                </div>
+       
+           
                 <div class="middle_top1">
                     <span>行程天数</span>&nbsp;&nbsp;&nbsp;
-                    <input type="button" value="1日">&nbsp;&nbsp;&nbsp;
-                    <input type="button" value="2日">&nbsp;&nbsp;&nbsp;
-                    <input type="button" value="3日">&nbsp;&nbsp;&nbsp;
-                    <input type="button" value="4日">&nbsp;&nbsp;&nbsp;
-                    <input type="button" value="5日">&nbsp;&nbsp;&nbsp;
-                    <input type="button" value="6日">&nbsp;&nbsp;&nbsp;
-                    <input type="button" value="7日">&nbsp;&nbsp;&nbsp;
-                    <input type="button" value=">7日">&nbsp;&nbsp;&nbsp;
+                    <input type="button" exatt1="days=1" fation="1" value="1日">&nbsp;&nbsp;&nbsp;
+                    <input type="button" exatt1="days=2" fation="1" value="2日">&nbsp;&nbsp;&nbsp;
+                    <input type="button" exatt1="days=3" fation="1" value="3日">&nbsp;&nbsp;&nbsp;
+                    <input type="button" exatt1="days=4" fation="1" value="4日">&nbsp;&nbsp;&nbsp;
+                    <input type="button" exatt1="days=5" fation="1" value="5日">&nbsp;&nbsp;&nbsp;
+                    <input type="button" exatt1="days=6" fation="1" value="6日">&nbsp;&nbsp;&nbsp;
+                    <input type="button" exatt1="days=7" fation="1" value="7日">&nbsp;&nbsp;&nbsp;
+                    <input type="button" exatt1="days>7" fation="1" value=">7日">&nbsp;&nbsp;&nbsp;
                 </div>
-                <div class="middle_top1">
-                    <span>出发日期</span>&nbsp;&nbsp;&nbsp;
-                    <input type="button" value="5月">&nbsp;&nbsp;&nbsp;
-                    <input type="button" value="6月">&nbsp;&nbsp;&nbsp;
-                    <input type="button" value="7月">&nbsp;&nbsp;&nbsp;
-
-                </div>
+                 
+                
                 <div class="middle_top1">
                     <span>出发城市</span>&nbsp;&nbsp;&nbsp;
-                    <input type="button" value="北京">&nbsp;&nbsp;&nbsp;
-                    <input type="button" value="上海">&nbsp;&nbsp;&nbsp;
-                    <input type="button" value="广州">&nbsp;&nbsp;&nbsp;
-
+                    <input type="button" exatt1="departure like ,北京." fation="2" value="北京">&nbsp;&nbsp;&nbsp;
+                    <input type="button" exatt1="departure like ,上海." fation="2" value="上海">&nbsp;&nbsp;&nbsp;
+                    <input type="button" exatt1="departure like ,杭州." fation="2" value="杭州">&nbsp;&nbsp;&nbsp;
+					<input type="button" exatt1="departure like ,天津." fation="2" value="天津">&nbsp;&nbsp;&nbsp;
+					
                 </div>
                 <div class="middle_top1">
                     <span>供应商</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="button" value="liyou直营" style="margin-left:2px">&nbsp;&nbsp;&nbsp;
-                    <input type="button" value="北京">&nbsp;&nbsp;&nbsp;
-                    <input type="button" value="香港">&nbsp;&nbsp;&nbsp;
+                    <input type="button" exatt1="supplier=,离游自营," fation="3" value="离游自营" style="margin-left:2px">&nbsp;&nbsp;&nbsp;
+                    <input type="button" exatt1="supplier=,北京中国旅,"  fation="3" value="北京中国旅">&nbsp;&nbsp;&nbsp;
+                    <input type="button" exatt1="supplier=,香港旅游,"  fation="3" value="港澳风情">&nbsp;&nbsp;&nbsp;
                 </div>
                 <div class="middle_top3">
                     <span>价格区间</span>&nbsp;&nbsp;&nbsp;
@@ -783,47 +901,58 @@
                     <lable>~</lable>
                     <input id="maxprice" type="text" placeholder="￥" style="width:50px">
                     <input id="hidinput" type="button" hidden value="提交">&nbsp;&nbsp;&nbsp;
-                    <input type="button" value="价格升序" >&nbsp;&nbsp;&nbsp;
-                    <input type="button" value="价格降序">&nbsp;&nbsp;&nbsp;
-
+                   
                 </div>
             </div>
         </div>
         <!--条件结束-->
-
+  </form> 
         <div class="middle_middle">
             <div class="middle_middle_left">
-                <!--列表开始-->
+                
+                <%
+                	List<Tourism> list=new ArrayList<Tourism>();
+                	list=(List<Tourism>)request.getAttribute("list");
+                	
+                	for(int i=0;i<list.size();i++){
+                		Tourism tourism=list.get(i);
+                		%>
+                			<!--列表开始-->
                 <div class="tlist">
                     <div class="tlist_left">
-                        <img src="images/main/hukoupubu.jpg" style="margin-top: 10px" width="200" height="150">
+                        <img src="images/tourism/<%=tourism.getImages_name() %>" style="margin-top: 10px" width="200" height="150">
 
                         <div style="width: auto;height: 20px;color: white;background-color: red ;float: left">
-                            <span>跟团游</span>
+                            <span><%=tourism.getFashion() %></span>
                         </div>
                     </div>
                     <div class="tlist_right" >
-                        <a>上海--------------------------------北京+++++++++++++++++++++++++++++++天津--------------------------</a>
+                        <a href="DetailServlet?tourism_id=<%=tourism.getTourism_id() %>"><%=tourism.getTourism_name() %></a>
                         <div class="tlist_right_info">
                             <div class="tlist_right_left">
                                 <br>
 
-                                <p style="color: green">出发地：阜阳</p>
-                                <p>介&nbsp;&nbsp;&nbsp;绍：别别离别别离别别离别别离别别离别别离别别离别别离别别离别别离别别离别别离别别离别别离别别离别别离别别离别别离别别离</p>
-                                <span>班&nbsp;&nbsp;&nbsp;期：5-6、5-5</span>
+                                <p style="color: green">出发地：<%=tourism.getDeparture() %></p>
+                                <p>介&nbsp;&nbsp;&nbsp;绍：<%=tourism.getSmessage()%></p>
+                                <span>班&nbsp;&nbsp;&nbsp;期：<%=tourism.getFirstday()%>~<%=tourism.getLastday()%></span>
                                 <input  type="date" value="2018-05-04"  min="2018-05-04" max="2018-05-26">
-                                <p>供应商：liyou <span>并提供咨询/预订/售后服务</span></p>
+                                <p>供应商：<%=tourism.getSupplier() %> <span>并提供咨询/预订/售后服务</span></p>
                             </div>
                             <div class="tlist_right_center"></div>
                             <div class="tlist_right_right">
                                 <br><br><br>
-                                <span >￥1369</span>
+                                <span >￥<%=tourism.getDiscountprice() %></span>
                             </div>
 
                         </div>
                     </div>
                 </div>
                 <!--列表结束-->
+                		
+                		<%
+                	}
+                %>
+                
             </div>
             <div class="middle_middle_right">
                 <img src="images/select/tlist.jpg" width="300px">

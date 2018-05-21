@@ -130,14 +130,44 @@
 	</servlet-mapping>
 	
 	<servlet>
-		<servlet-name>setPosition</servlet-name>
-		<servlet-class>cn.liyou.servlet.SetPositionServlet</servlet-class>
+		<servlet-name>selectServlet</servlet-name>
+		<servlet-class>cn.liyou.servlet.SelectServlet</servlet-class>
 		
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>setPosition</servlet-name>
-		<url-pattern>/setPosition</url-pattern>
+		<servlet-name>selectServlet</servlet-name>
+		<url-pattern>/selectServlet</url-pattern>
 	</servlet-mapping>
   	
+  	<servlet>
+		<servlet-name>setPostion</servlet-name>
+		<servlet-class>cn.liyou.servlet.SetPostionServlet</servlet-class>
+		
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>setPostion</servlet-name>
+		<url-pattern>/setPostion</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>selectByInput</servlet-name>
+		<servlet-class>cn.liyou.servlet.SelectByInputServlet</servlet-class>
+		
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>selectByInput</servlet-name>
+		<url-pattern>/selectByInput</url-pattern>
+	</servlet-mapping>
   
+  
+  <servlet>
+		<servlet-name>login2</servlet-name>
+		<servlet-class>cn.liyou.servlet.Login2Servlet</servlet-class>
+		
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>login2</servlet-name>
+		<url-pattern>/login2</url-pattern>
+	</servlet-mapping>
 </web-app>
