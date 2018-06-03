@@ -142,13 +142,13 @@
         .submit {
             width: 280px;
             height: 35px;
-            background-color: #C40000;
+            background-color: #4E8BD6;
             margin-top: 15px;
             margin-left: -30px;
             border-radius: 5px;
             line-height: 35px;
             color: white;
-            border: 1px solid #C40000;
+            border: 1px solid white;
         }
 
         .tishi1 {
@@ -203,7 +203,7 @@
 <body>
 
 <div class="middle">
-    <img class="backimg" src="images/login/login.jpg" width="1300px" height="600px">
+    <img class="backimg" src="images/login/sloggin.jpg" width="1300px" height="600px">
     <div class="login">
         <div class="login_left"></div>
         <div class="login_right">
@@ -213,7 +213,7 @@
             <div class="login_head">
                 <span>供应商登录</span>
             </div>
-            <form action="main.jsp" method="post" id="loginform">
+            <form action="formManagerServlet" method="post" id="loginform">
                 <div class="login_name">
                     <div class="ln_img">
                         <img src="images/login/loginname.jpg" width="45" height="45">
@@ -241,11 +241,11 @@
                         <a>找回密码</a>
                     </div>
                     <div class="lor_right">
-                        <a href="register.jsp">免费注册</a>
+                        <a href="register2.jsp">免费注册</a>
                     </div>
                 </div>
                 <div class="submit_div">
-                    <input type="submit" value="登&nbsp;&nbsp;&nbsp;&nbsp;录" class="submit">
+                    <input type="submit" value="供应商登录" class="submit">
                 </div>
             </form>
         </div>

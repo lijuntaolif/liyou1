@@ -30,12 +30,12 @@ public class Tourism {
 	}
 	
 
-	public Tourism(Integer tourism_id, String tourism_name, String departure, String destination, String images_name,
+	public Tourism(String tourism_name, String departure, String destination, String images_name,
 			String rote, Integer price, Integer discountprice, String special, String fashion, String type,
 			Integer days, Date firstday, Date lastday, String views, String supplier, String cphone, String smessage,
 			Integer stock) {
 		super();
-		this.tourism_id = tourism_id;
+
 		this.tourism_name = tourism_name;
 		this.departure = departure;
 		this.destination = destination;

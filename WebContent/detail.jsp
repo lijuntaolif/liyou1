@@ -543,7 +543,7 @@
                     syncpay();
                 }
             });
-            /**点击**/
+            /**点击购买**/
             $("#buyButton").click(function(){
             		if(checksubmit()&&checkDate()){
             			var tourism_id=$("#tourism_id").val();
@@ -642,27 +642,46 @@
     <nav>
         <ul >
 
-            <li>
-                <a href="main.jsp"> 首页</a>
-            </li>
-            <li>
-                <a href="select.jsp">旅游</a>
-            </li>
-            <li>
-                <a href="form.jsp">订单</a>
-            </li>
-            <li>
-                <a href="collection.jsp">收藏</a>
-            </li>
-            <li>
-                <%
+              <li>
+               <a href="main.jsp"> 首页</a>
+           </li>
+           <li>
+               <a href="select.jsp">旅游</a>
+           </li>
+           <li>
+           <%
            		String user_name=(String)session.getAttribute("user_name");
+           		if(user_name==null){
+           			%><a href="login.jsp">订单</a><%
+           		}else{
+           			%>   <a href="formServlet?user_id=<%=session.getAttribute("user_id")%>">订单</a><%
+           		}
+           		 %>
+            
+           </li>
+           <li>
+           <%
+           		
+           		if(user_name==null){
+           			%><a href="login.jsp">收藏</a><%
+           		}else{
+           			%>   <a href="FindCollection?user_id=<%=session.getAttribute("user_id")%>">收藏</a><%
+           		}
+           		 %>
+            
+              
+           </li>
+           <li>
+           		<%
+           		
            		if(user_name!=null){
            			%>用户&nbsp;<%=user_name %>&nbsp;你好<%
            		}else{
            			%> <a href="login.jsp">登录</a>/<a href="register.jsp">注册</a><%
            		}
-           		 %></li>
+           		 %>
+              
+           </li>
         </ul>
     </nav>
 

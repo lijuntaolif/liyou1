@@ -549,15 +549,15 @@
                 var fation=$(this).attr("fation");
                 
           		if(fation==1){
-          			var input2=$("<input type='text' hidden  name='keys' value='"+exatt1+"'>");
+          			var input2=$("<input type='text' class='inputHidden' hidden name='keys' value='"+exatt1+"'>");
           			$("#choose_no").prepend(input2);
           		}
           		if(fation==2){
-          			var input2=$("<input type='text' hidden  name='departure' value='"+exatt1+"'>");
+          			var input2=$("<input type='text' class='inputHidden' hidden name='departure' value='"+exatt1+"'>");
           			$("#choose_no").prepend(input2);
           		}
           		if(fation==3){
-          			var input2=$("<input type='text' hidden name='supplier' value='"+exatt1+"'>");
+          			var input2=$("<input type='text' class='inputHidden' hidden name='supplier' value='"+exatt1+"'>");
           			$("#choose_no").prepend(input2);
           		}
                 
@@ -604,7 +604,9 @@
             //因为在初始加载之后添加input，所以标准点击事件不会绑定到动态添加的input。
             //live可以解决,通过 live() 方法附加的事件处理程序适用于匹配选择器的当前及未来的元素（比如由脚本创建的新元素）。
             $(".middle_top1Input").live("click",function(){
+            	$(this).next().remove();
                 $(this).remove();
+               
             });
 
             $("#maxprice,#minprice").focus(function(){

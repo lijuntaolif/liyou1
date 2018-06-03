@@ -136,7 +136,19 @@
         .form_message a{
             text-decoration: none;
         }
-        .back{
+        .back1{
+            margin-top: 5px;
+            background-color: red;
+            width: 80px;
+            height: 30px;
+            border-radius: 20px;
+            float: left;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+
+        }
+         .back2{
             margin-top: 5px;
             background-color: red;
             width: 80px;
@@ -183,9 +195,11 @@
                 $(this).removeClass("addAstyle");
             });
             
-            $("#tuikuan").click(function(){
+            $(".back1").click(function(){
+            	var form_id=$(this).parents().siblings(".form_head_navn").val();
+            	alert(form_id);
             	var choose=confirm("确定退款吗?");
-            	var form_id=$(this).parents().siblings(".form_head_navx").val();
+            	
       			
             	if(choose){
             	
@@ -214,7 +228,7 @@
             	
             });
             
-            $("#sanchu").click(function(){
+            $(".back2").click(function(){
             	var choose=confirm("确定删除订单吗?");
             	var form_id=$(this).parents().siblings(".form_head_navx").val();
       			
@@ -326,7 +340,7 @@
                              	<%=form.getState()%>
                             </div>
                             <div class="form_head_nav3">
-                                <div class="back" id="tuikuan">
+                                <div class="back1" id="tuikuan">
                                   	  退款
                                 </div>
                             </div>
@@ -403,7 +417,7 @@
                            		 <%=form2.getState()%>
                        		</div>
                         	<div class="form_head_nav3">
-                            	<div class="back" id="sanchu">
+                            	<div class="back2" id="sanchu">
                                		 删除订单
                             	</div>
                        		 </div>

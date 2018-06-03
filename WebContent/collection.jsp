@@ -203,7 +203,7 @@
                     </div>
                     <div class="middle_bottom">
                         <div class="middle_bottom_left">
-                            <a href="detail.jsp?tourism_id=<%=tourism.getTourism_id()%>">立即购买</a>
+                            <a href="DetailServlet?tourism_id=<%=tourism.getTourism_id()%>">立即购买</a>
                         </div>
                         <div class="middle_bottom_right">
                             <a href="#">删除收藏</a>

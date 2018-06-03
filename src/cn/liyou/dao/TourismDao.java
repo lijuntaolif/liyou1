@@ -160,6 +160,54 @@ public class TourismDao {
 		}
 		 return list;
 	}
+	/**
+	 * 按供应商名称查询
+	 * @param 供应商名
+	 * @return tourism集合
+	 */
+	public List<Tourism> selectByS_name(String S_name){
+		List<Tourism> list=new ArrayList<Tourism>();
+		
+		conn=DBUtils.getconn();
+		String sql="select * from tourism where supplier=?";
+		try {
+			
+			pstmt=conn.prepareStatement(sql);
+		
+			pstmt.setString(1, S_name);
+			
+			rs=pstmt.executeQuery();
+			while(rs.next()){
+				Tourism tourism=new Tourism();
+				tourism.setTourism_id(rs.getInt(1));
+				tourism.setTourism_name(rs.getString(2));
+				tourism.setDeparture(rs.getString(3));
+				tourism.setDestination(rs.getString(4));
+				tourism.setImages_name(rs.getString(5));
+				tourism.setRote(rs.getString(6));
+				tourism.setPrice(rs.getInt(7));
+				tourism.setDiscountprice(rs.getInt(8));
+				tourism.setSpecial(rs.getString(9));
+				tourism.setFashion(rs.getString(10));
+				tourism.setType(rs.getString(11));
+				tourism.setDays(rs.getInt(12));
+				tourism.setFirstday(rs.getDate(13));
+				
+				tourism.setLastday(rs.getDate(14));
+				tourism.setViews(rs.getString(15));
+				tourism.setSupplier(rs.getString(16));
+				tourism.setCphone(rs.getString(17));
+				tourism.setSmessage(rs.getString(18));
+				tourism.setStock(rs.getInt(19));
+				list.add(tourism);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			DBUtils.closeAll(conn, pstmt, rs);
+		}
+		return list;
+	}
 	
 	/**
 	 * 按关键字查找旅游项目()
@@ -172,7 +220,7 @@ public class TourismDao {
 		conn=DBUtils.getconn();
 		 try {
 			stmt=conn.createStatement();
-			System.out.println(stmt);
+			
 			rs=stmt.executeQuery(sql+exatt1);
 			while(rs.next()){
 				Tourism tourism=new Tourism();
@@ -230,5 +278,87 @@ public class TourismDao {
 	
 		 return list;
 	}
-	
+	/**
+	 * 添加旅游项目
+	 * @param tourism
+	 * @return 1代表添加成功，0代表失败
+	 */
+	public int insertTourism(Tourism tourism){
+		int i=0;
+		conn=DBUtils.getconn();
+		String sql="insert into tourism values(tourism_sqc.nextval,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, tourism.getTourism_name());
+			pstmt.setString(2, tourism.getDeparture());
+			pstmt.setString(3, tourism.getDestination());
+			pstmt.setString(4, tourism.getImages_name());
+			pstmt.setString(5, tourism.getRote());
+			pstmt.setInt(6, tourism.getPrice());
+			pstmt.setInt(7, tourism.getDiscountprice());
+			pstmt.setString(8, tourism.getSpecial());
+			pstmt.setString(9, tourism.getFashion());
+			pstmt.setString(10, tourism.getType());
+			pstmt.setInt(11, tourism.getDays());
+			pstmt.setDate(12, DateFormat.utilToSql(tourism.getFirstday()));
+			pstmt.setDate(13, DateFormat.utilToSql(tourism.getLastday()));
+			pstmt.setString(14, tourism.getViews());
+			pstmt.setString(15, tourism.getSupplier());
+			pstmt.setString(16, tourism.getCphone());
+			pstmt.setString(17, tourism.getSmessage());
+			pstmt.setInt(18, tourism.getStock());
+			i=pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			DBUtils.closeAll(conn, pstmt, null);
+		}
+		
+		return i;
+		
+	}
+	/**
+	 * 查询id
+	 * @param tourism_name
+	 * @return 0代表没有
+	 */
+	public int selseIdByName(String tourism_name){
+		int i=0;
+		conn=DBUtils.getconn();
+		String sql="select tourism_id from tourism where tourism_name=?";
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, tourism_name);
+			rs=pstmt.executeQuery();
+			while(rs.next()){
+				i=rs.getInt("tourism_id");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			DBUtils.closeAll(conn, pstmt, rs);
+		}
+		return i;
+	}
+	/**
+	 * 删除旅游项目
+	 * @param tourism_name
+	 * @return 0代表没有删除
+	 */
+	public int deleteById(int tourism_id){
+		int i=0;
+		conn=DBUtils.getconn();
+		String sql="delete from tourism where tourism_id=?";
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, tourism_id);
+			i=pstmt.executeUpdate();
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			DBUtils.closeAll(conn, pstmt, rs);
+		}
+		return i;
+	}
 }

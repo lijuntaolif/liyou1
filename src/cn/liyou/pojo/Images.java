@@ -10,9 +10,9 @@ public class Images {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Images(Integer images_id, String images_name, Integer type, Integer tourism_id) {
+	public Images( String images_name, Integer type, Integer tourism_id) {
 		super();
-		this.images_id = images_id;
+
 		this.images_name = images_name;
 		this.type = type;
 		this.tourism_id = tourism_id;

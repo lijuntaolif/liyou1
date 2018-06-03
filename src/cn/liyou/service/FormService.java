@@ -54,6 +54,25 @@ public class FormService {
 		
 		return formDao.selectByUser_id2(user_id);
 	}
+	/**
+	 * 根据供应商查询订单未出行
+	 * @param s_name
+	 * @return
+	 */
+	public List<Form> getBySupplier(String s_name){
+		FormDao formDao=new FormDao();
+		return formDao.selectBySupplier(s_name);
+	}
+	
+	/**
+	 * 根据供应商查询已出行订单
+	 * @param s_name
+	 * @return
+	 */
+	public List<Form> getBySupplier2(String s_name){
+		FormDao formDao=new FormDao();
+		return formDao.selectBySupplier2(s_name);
+	}
 	
 	/**
 	 * 更新订单
@@ -70,9 +89,61 @@ public class FormService {
 		}
 	}
 	
+	/**
+	 * 同意退款更新订单
+	 * @param form_id
+	 * @return
+	 */
+	public boolean updateForm2(Integer form_id){
+		FormDao formDao=new FormDao();
+		if(formDao.updateState2(form_id)==1){
+			return true;
+			
+		}else{
+			return false;
+		}
+	}
+	/**
+	 * 不同意退款更新订单
+	 * @param form_id
+	 * @return
+	 */
+	public boolean updateForm3(Integer form_id){
+		FormDao formDao=new FormDao();
+		if(formDao.updateState3(form_id)==1){
+			return true;
+			
+		}else{
+			return false;
+		}
+	}
+	/**
+	 * 已出行更新订单
+	 * @param form_id
+	 * @return
+	 */
+	public boolean updateForm4(Integer form_id){
+		FormDao formDao=new FormDao();
+		if(formDao.updateState4(form_id)==1){
+			return true;
+			
+		}else{
+			return false;
+		}
+	}
+	
 	public boolean deleteForm(Integer form_id){
 		FormDao formDao=new FormDao();
 		if(formDao.deleteForm(form_id)==1){
+			return true;
+			
+		}else{
+			return false;
+		}
+	}
+	public boolean deleteForm2(Integer form_id){
+		FormDao formDao=new FormDao();
+		if(formDao.deleteForm2(form_id)==1){
 			return true;
 			
 		}else{
