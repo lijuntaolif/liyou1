@@ -318,6 +318,45 @@ public class TourismDao {
 		
 	}
 	/**
+	 * 更新旅游项目
+	 * @param tourism
+	 * @return 1代表添加成功，0代表失败
+	 */
+	public int updateTourism(Tourism tourism){
+		int i=0;
+		conn=DBUtils.getconn();
+		String sql="update  tourism set tourism_name=?,Departure=?,Destination=?,Route=?,Price=?,Discountprice=?,Special=?,Fashion=?,Type=?,Days=?,Firstday=?,Lastday=?,Views=?,Smessage=?,stock=? where tourism_id=?";
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, tourism.getTourism_name());
+			pstmt.setString(2, tourism.getDeparture());
+			pstmt.setString(3, tourism.getDestination());
+			
+			pstmt.setString(4, tourism.getRote());
+			pstmt.setInt(5, tourism.getPrice());
+			pstmt.setInt(6, tourism.getDiscountprice());
+			pstmt.setString(7, tourism.getSpecial());
+			pstmt.setString(8, tourism.getFashion());
+			pstmt.setString(9, tourism.getType());
+			pstmt.setInt(10, tourism.getDays());
+			pstmt.setDate(11, DateFormat.utilToSql(tourism.getFirstday()));
+			pstmt.setDate(12, DateFormat.utilToSql(tourism.getLastday()));
+			pstmt.setString(13, tourism.getViews());
+			
+			pstmt.setString(14, tourism.getSmessage());
+			pstmt.setInt(15, tourism.getStock());
+			pstmt.setInt(16, tourism.getTourism_id());
+			i=pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			DBUtils.closeAll(conn, pstmt, null);
+		}
+		
+		return i;
+		
+	}
+	/**
 	 * 查询id
 	 * @param tourism_name
 	 * @return 0代表没有

@@ -1,3 +1,4 @@
+<%@page import="cn.liyou.pojo.Tourism"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -112,7 +113,7 @@
 </head>
 <body>
 <!--注册表单-->
-<form method="post" action="UserServlet" class="registerForm">
+<form method="post" action="doUpdate" class="registerForm">
     <!-- 注册主页面-->
 
     <div class="registerDiv">
@@ -124,8 +125,7 @@
             <div class="registerLeft">出发地</div>
             <div class="registerLeft">目的地</div>
 
-            <div class="registerLeft">展示图片</div>
-            <div class="registerLeft">详情图片</div>
+           
             <div class="registerLeft">行程概要</div>
             <div class="registerLeft">折前价格</div>
             <div class="registerLeft">折后价格</div>
@@ -139,66 +139,66 @@
             <div class="registerLeft">供应商留言</div>
             <div class="registerLeft">库存数量</div>
         </div>
-
-        <!-- 中间表单-->
+		<%
+			Tourism tourism=(Tourism)request.getAttribute("tourism");
+		
+		%>
+		 <!-- 中间表单-->
+	
+		 
+		
         <div class="registerMidBox">
             <div class="registerMid"></div>
             <div class="registerMid">
-                <input id="name" name="name" value="曼谷暹罗海洋世界" onblur="checkName();">
+                <input id="name" name="tourism_name" type="text" value="<%=tourism.getTourism_name()%>">
+                <input type="text" hidden name="tourism_id"  value="<%=tourism.getTourism_id()%>">
             </div>
 
             <div class="registerMid">
-                <input id="password" name="password" type="text"
-                       value="天津" >
+                <input id="password" name="departure" type="text" value="<%=tourism.getDeparture()%>" >
             </div>
             <div class="registerMid">
-                <input id="repeatpassword" name="repassword" type="text" value="泰国曼谷" >
+                <input id="repeatpassword" name="destination" type="text" value="<%=tourism.getDestination()%>" >
+            </div>
+           
+            <div class="registerMid">
+                <input id="companyname" name="rote" type="text" value="<%=tourism.getRote()%>" >
             </div>
             <div class="registerMid">
-                <input  name="url" type="file" value="">
+                <input  id="price" name="price" type="text" value="<%=tourism.getPrice()%>" >
             </div>
             <div class="registerMid">
-                <input  name="url" type="file" value="">
+                <input  name="discountprice" type="text" value="<%=tourism.getDiscountprice()%>" >
             </div>
             <div class="registerMid">
-                <input id="companyname" name="companyname" type="text" value="曼谷暹罗海洋世界一日游" >
+                <input id="url" name="special" type="text" value="<%=tourism.getSpecial()%>">
             </div>
             <div class="registerMid">
-                <input id="address" name="address" type="text" value="100" >
+                <input id="fation" name="fashion" type="text" value="<%=tourism.getFashion()%>">
             </div>
             <div class="registerMid">
-                <input id="cphone" name="cphone" type="text" value="99" >
+                <input  name="type" type="text" value="<%=tourism.getType()%>">
             </div>
             <div class="registerMid">
-                <input id="url" name="url" type="text" value="海洋公园">
+                <input  name="days" type="text" value="<%=tourism.getDays()%>">
             </div>
             <div class="registerMid">
-                <input id="fation" name="url" type="text" value="一日游">
+            <input  name="firstday" type="date" value="<%=tourism.getFirstday()%>">
             </div>
             <div class="registerMid">
-                <input  name="url" type="text" value="国外">
+                <input  name="lastday" type="date" value="<%=tourism.getLastday()%>">
             </div>
             <div class="registerMid">
-                <input  name="url" type="text" value="1">
+                <input  name="views" type="text" value="<%=tourism.getViews()%>">
             </div>
             <div class="registerMid">
-            <input  name="url" type="text" value="2018-05-28">
+                <input  name="smessage" type="text" value="<%=tourism.getSmessage()%>">
             </div>
             <div class="registerMid">
-                <input  name="url" type="text" value="2018-7-20">
-            </div>
-            <div class="registerMid">
-                <input  name="url" type="text" value="海狮海豹表演">
-            </div>
-            <div class="registerMid">
-                <input  name="url" type="text" value="一分价格一分货，比常规线路多一天自由活动，品.质担当
-一直被模仿 从未被超越！不拼虚高立减,拼您的满意!
- 只含海南人气高景点,每天1-2个精华游玩处，金牌导游，省时省心，之选">
-            </div>
-            <div class="registerMid">
-                <input  name="url" type="text" value="100">
+                <input  name="stock" type="text" value="<%=tourism.getStock()%>">
             </div>
         </div>
+       
 
         <div class="registerRightBox">
             <div class="registerRight"></div>

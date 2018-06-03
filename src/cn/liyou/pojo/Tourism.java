@@ -55,7 +55,33 @@ public class Tourism {
 		this.smessage = smessage;
 		this.stock = stock;
 	}
+	public Tourism(int tourism_id,String tourism_name, String departure, String destination,
+			String rote, Integer price, Integer discountprice, String special, String fashion, String type,
+			Integer days, Date firstday, Date lastday, String views,String smessage,
+			Integer stock) {
+		super();
+		this.tourism_id=tourism_id;
+		this.tourism_name = tourism_name;
+		this.departure = departure;
+		this.destination = destination;
+		
+		this.rote = rote;
+		this.price = price;
+		this.discountprice = discountprice;
+		this.special = special;
+		this.fashion = fashion;
+		this.type = type;
+		this.days = days;
+		this.firstday = firstday;
+		this.lastday = lastday;
+		this.views = views;
+		
+		this.smessage = smessage;
+		this.stock = stock;
+	}
 
+
+	
 
 	public Integer getTourism_id() {
 		return tourism_id;

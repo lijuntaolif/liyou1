@@ -251,4 +251,13 @@
 		<servlet-name>deleteTourism</servlet-name>
 		<url-pattern>/deleteTourism</url-pattern>
 	</servlet-mapping>
+  <servlet>
+		<servlet-name>doUpdate</servlet-name>
+		<servlet-class>cn.liyou.servlet.DoUpdateServlet</servlet-class>
+		
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>doUpdate</servlet-name>
+		<url-pattern>/doUpdate</url-pattern>
+	</servlet-mapping>
 </web-app>
